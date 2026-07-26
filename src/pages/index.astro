@@ -1,11 +1,381 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Metadatos adaptables e integrales para ZAIKURAI
+const title = "ZAIKURAI - Inmótica, IoT y Automatización Integral";
+const description = "Soluciones de IoT e inmótica para reducir costos operativos, automatizar la gestión energética y modernizar la infraestructura de tu inmueble.";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={title} description={description}>
+  <main class="page-container">
+    
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-content">
+        <span class="badge">Plataforma de Inmótica & IoT</span>
+        <h1>Control inteligente y eficiencia energética para <span class="highlight">cualquier espacio</span></h1>
+        <p class="subtitle">
+          Conectamos dispositivos, sensores y sistemas para reducir costos operativos, automatizar procesos y modernizar infraestructuras sin complicaciones.
+        </p>
+        <div class="cta-group">
+          <a href="#contacto" class="btn btn-primary">Cotizar un Proyecto</a>
+          <a href="#sectores" class="btn btn-secondary">Explorar Soluciones</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- PILARES DE IMPACTO -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <h3>Eficiencia</h3>
+        <p>Optimización del consumo eléctrico y térmico en tiempo real.</p>
+      </div>
+      <div class="metric-card">
+        <h3>Retrofit</h3>
+        <p>Integración limpia sobre infraestructura existente sin obras.</p>
+      </div>
+      <div class="metric-card">
+        <h3>Escalable</h3>
+        <p>Desde un área o suite local hasta múltiples sedes complejas.</p>
+      </div>
+      <div class="metric-card">
+        <h3>Monitoreo</h3>
+        <p>Alertas tempranas, telemetría y métricas centralizadas.</p>
+      </div>
+    </section>
+
+    <!-- CAPACIDADES GENERALES DE LA PLATAFORMA -->
+    <section class="section-container">
+      <div class="section-header">
+        <h2>¿Qué puedes automatizar y monitorear?</h2>
+        <p>Módulos adaptables según los requerimientos técnicos y operativos de tu infraestructura.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="feature-card">
+          <div class="icon">⚡</div>
+          <h3>Gestión Energética</h3>
+          <p>Medición de tableros, control automatizado de climatización, iluminación por presencia y programación horaria.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">🔐</div>
+          <h3>Acceso y Seguridad</h3>
+          <p>Cerraduras digitales, control de accesos por perfil, sensores de apertura y monitoreo de presencia.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">🛡️</div>
+          <h3>Prevención y Alertas</h3>
+          <p>Detección de fugas de agua, sobrecargas eléctricas, nivel de tanques y variaciones críticas de temperatura.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASOS DE USO / SECTORES -->
+    <section id="sectores" class="section-container alt-bg">
+      <div class="section-header">
+        <h2>Adaptado a diversos sectores</h2>
+        <p>Soluciones flexibles diseñadas para resolver desafíos específicos de gestión e infraestructura.</p>
+      </div>
+
+      <div class="sectors-grid">
+        <div class="sector-card">
+          <span class="sector-tag">Hoteles & Alojamiento</span>
+          <p>Optimización del gasto eléctrico en habitaciones vacías, simplificación del check-in/accesos y supervisión remota del inmueble.</p>
+        </div>
+
+        <div class="sector-card">
+          <span class="sector-tag">Edificios & Condominios</span>
+          <p>Automatización de áreas comunes, tableros de bombas de agua, medición trifásica y control de accesos generales.</p>
+        </div>
+
+        <div class="sector-card">
+          <span class="sector-tag">Oficinas & Comercio</span>
+          <p>Programación de HVAC e iluminación, control de aforo y medición analítica del consumo por áreas o zonas de trabajo.</p>
+        </div>
+
+        <div class="sector-card">
+          <span class="sector-tag">Proyectos a Medida</span>
+          <p>Integración de hardware industrial e IoT mediante protocolos estándar (Modbus, RS485, MQTT, Zigbee, Tuya).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO / ASESORÍA -->
+    <section id="contacto" class="section-container form-section">
+      <div class="section-header">
+        <h2>¿Tienes un proyecto en mente?</h2>
+        <p>Escríbenos y diseñaremos una propuesta técnica adaptada a tus necesidades.</p>
+      </div>
+
+      <form class="contact-form" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label for="nombre">Nombre / Empresa</label>
+          <input type="text" id="nombre" required placeholder="Ej. Carlos Mendoza / Constructora X" />
+        </div>
+
+        <div class="form-group">
+          <label for="sector">Sector o Tipo de Inmueble</label>
+          <select id="sector">
+            <option>Hotel / Hospedaje</option>
+            <option>Edificio Residencial / Condominio</option>
+            <option>Oficina / Local Comercial</option>
+            <option>Proyecto Industrial / Especializado</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="detalles">Detalles del Requerimiento</label>
+          <textarea id="detalles" rows="4" placeholder="Describe brevemente qué deseas automatizar o controlar..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary full-width">Solicitar Asesoría</button>
+      </form>
+    </section>
+
+  </main>
 </Layout>
+
+<style>
+  :root {
+    --bg-main: #030712;
+    --bg-card: #0f172a;
+    --bg-card-alt: #1e293b;
+    --border-color: #1e293b;
+    --primary: #06b6d4;
+    --primary-hover: #22d3ee;
+    --text-white: #f8fafc;
+    --text-muted: #94a3b8;
+  }
+
+  .page-container {
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .hero {
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    background: radial-gradient(circle at top, #0f172a 0%, #030712 100%);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background-color: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .highlight {
+    color: var(--primary);
+    background: linear-gradient(90deg, #06b6d4, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: #030712;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-hover);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--text-white);
+    border: 1px solid var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--bg-card);
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+  }
+
+  .metric-card h3 {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .metric-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .section-header p {
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+
+  .cards-grid, .sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-card, .sector-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.75rem;
+    border-radius: 0.75rem;
+  }
+
+  .feature-card .icon {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p, .sector-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .alt-bg {
+    background-color: rgba(15, 23, 42, 0.4);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    max-width: 100%;
+  }
+
+  .sector-tag {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-section {
+    max-width: 600px;
+  }
+
+  .contact-form {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+  }
+
+  .form-group label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .form-group input, .form-group select, .form-group textarea {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    color: var(--text-white);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    outline: none;
+  }
+
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--primary);
+  }
+
+  .full-width {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+</style>
