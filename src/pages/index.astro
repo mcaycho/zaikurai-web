@@ -1,5 +1,4 @@
 ---
----
 import Layout from '../layouts/Layout.astro';
 
 const title = "ZAIKURAI - Inmótica, Control e Integración IoT";
@@ -7,13 +6,13 @@ const description = "Automatización de edificios, supervisión SCADA/BMS y gest
 ---
 
 <Layout title={title} description={description}>
-  <main class="min-h-screen bg-slate-950 text-slate-100 font-sans">
+  <main class="min-h-screen bg-[#1a1a1a] text-slate-100 font-sans">
 
-    <!-- BARRA DE NAVEGACIÓN SUPERIOR (Réplica exacta J&J) -->
-    <nav class="bg-[#2a2a2a] border-b border-zinc-800 sticky top-0 z-50">
+    <!-- 1. NAVBAR SUPERIOR: Fondo plano y pestañas integradas -->
+    <nav class="bg-[#2a2a2a] border-b border-zinc-850 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto flex items-center justify-between h-20 px-6">
         
-        <!-- Logo Corporativo a la izquierda -->
+        <!-- Logo Corporativo -->
         <div class="flex items-center gap-3">
           <div class="w-9 h-9 rounded bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl">
             Z
@@ -21,46 +20,46 @@ const description = "Automatización de edificios, supervisión SCADA/BMS y gest
           <span class="text-xl font-bold tracking-wider text-white">ZAIKURAI <span class="text-xs text-cyan-400 font-mono font-normal">TECH</span></span>
         </div>
 
-        <!-- Menú Principal alineado a la derecha con pestañas -->
+        <!-- Menú alineado con pestañas de bloque completo -->
         <div class="hidden md:flex h-full items-center text-sm font-normal text-zinc-300">
           <a href="#inicio" class="bg-[#1a1a1a] text-white px-6 h-20 flex items-center border-b-2 border-cyan-500 transition">Inicio</a>
           <a href="#quienes-somos" class="hover:bg-[#1a1a1a] hover:text-white px-6 h-20 flex items-center transition">Quiénes Somos</a>
           <a href="#servicios" class="hover:bg-[#1a1a1a] hover:text-white px-6 h-20 flex items-center transition">Servicios</a>
           <a href="#proyectos" class="hover:bg-[#1a1a1a] hover:text-white px-6 h-20 flex items-center transition">Proyectos</a>
-          <a href="#contacto" class="hover:text-cyan-400 px-6 h-20 flex items-center transition">Contacto</a>
+          <a href="#contacto" class="hover:bg-[#1a1a1a] hover:text-white px-6 h-20 flex items-center transition">Contacto</a>
         </div>
 
       </div>
     </nav>
 
-    <!-- HERO SECTION / BANNER SLIDER DE EDIFICIOS (Réplica exacta J&J) -->
-    <header id="inicio" class="relative w-full h-[70vh] md:h-[85vh] overflow-hidden bg-slate-900">
+    <!-- 2. HERO SECTION / BANNER SLIDER: Imagen completa de fondo con letras inferiores -->
+    <header id="inicio" class="relative w-full h-[75vh] md:h-[85vh] overflow-hidden bg-slate-900">
       
-      <!-- Imagen de fondo de Ciudad/Edificios -->
+      <!-- Imagen panorámica de fondo (Debes usar una foto horizontal de edificios/ciudad) -->
       <img 
         src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" 
-        alt="Automatización de Edificios Inteligentes" 
+        alt="Automatización de Edificios Inteligentes Zaikurai" 
         class="absolute inset-0 w-full h-full object-cover object-center"
       />
       
-      <!-- Capa de superposición para contraste suave -->
-      <div class="absolute inset-0 bg-slate-950/20"></div>
+      <!-- Capa de oscurecimiento suave sobre la foto -->
+      <div class="absolute inset-0 bg-black/15"></div>
 
-      <!-- Controles del Slider (Flechas Laterales) -->
-      <button class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-white/50 hover:text-white text-3xl font-light transition z-10" aria-label="Anterior">
+      <!-- Flechas del Carrusel (Estilo J&J) -->
+      <button class="absolute left-6 top-1/2 -translate-y-1/2 text-white/40 hover:text-white text-4xl font-light transition z-10" aria-label="Anterior">
         ‹
       </button>
-      <button class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-white/50 hover:text-white text-3xl font-light transition z-10" aria-label="Siguiente">
+      <button class="absolute right-6 top-1/2 -translate-y-1/2 text-white/40 hover:text-white text-4xl font-light transition z-10" aria-label="Siguiente">
         ›
       </button>
 
-      <!-- Contenedor del Texto Inferior -->
-      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pt-32 pb-12 px-6">
+      <!-- Título Inferior Superpuesto -->
+      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pt-40 pb-14 px-6">
         <div class="max-w-7xl mx-auto text-center">
-          <h1 class="text-white text-4xl md:text-7xl font-light tracking-widest uppercase drop-shadow-[0_4px_6px_rgba(0,0,0,0.7)]">
+          <h1 class="text-white text-4xl md:text-7xl font-extralight tracking-[0.2em] uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
             Automatización de Edificios
           </h1>
-          <p class="text-zinc-300 font-mono text-xs uppercase tracking-widest mt-2 opacity-80">
+          <p class="text-zinc-400 font-mono text-[10px] uppercase tracking-[0.3em] mt-3 opacity-90">
             Zaikurai Tech Control
           </p>
         </div>
@@ -68,6 +67,5 @@ const description = "Automatización de edificios, supervisión SCADA/BMS y gest
 
     </header>
 
-    <!-- Resto de secciones (Quiénes Somos, Servicios...) -->
   </main>
 </Layout>
