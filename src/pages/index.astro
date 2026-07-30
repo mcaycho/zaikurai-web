@@ -8,11 +8,11 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
 <Layout title={title} description={description}>
   <main class="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950">
 
-    <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR (Estilo J&J TechControl con menú a la derecha y espaciado) -->
+    <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR (Alineada a la derecha y con espacio generoso) -->
     <nav class="bg-[#2a2a2a] border-b border-zinc-800 sticky top-0 z-50">
       <div class="w-full max-w-[1920px] mx-auto flex items-center justify-between h-20 px-8">
         
-        <!-- Logo Branding (Izquierda) -->
+        <!-- Logo Corporativo (Izquierda) -->
         <div class="flex items-center gap-3 shrink-0">
           <div class="w-9 h-9 rounded bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl">
             Z
@@ -20,7 +20,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
           <span class="text-xl font-bold tracking-wider text-white">ZAIKURAI <span class="text-xs text-cyan-400 font-mono font-normal">TECH</span></span>
         </div>
 
-        <!-- Menú Principal alineado a la extrema derecha mediante ml-auto y con separación generosa -->
+        <!-- Menú Principal empujado a la extrema derecha con ml-auto y separado por pestañas -->
         <div class="hidden md:flex h-full items-center text-sm font-normal text-zinc-300 ml-auto">
           <a href="#inicio" class="bg-[#1a1a1a] text-white px-8 h-20 flex items-center border-b-2 border-cyan-500 transition">Inicio</a>
           <a href="#quienes-somos" class="hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center transition">Quiénes Somos</a>
@@ -32,20 +32,31 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
       </div>
     </nav>
 
-    <!-- 2. HERO SECTION / BANNER SLIDER: Fondo completo con texto gigante abajo (Réplica J&J) -->
+    <!-- 2. HERO SECTION / BANNER SLIDER: Fondo con doble compatibilidad de formato (.jpg / .png) -->
     <header id="inicio" class="relative w-full h-[75vh] md:h-[85vh] overflow-hidden bg-slate-900 border-b border-slate-800">
       
-      <!-- Imagen de fondo (Recuerda colocar tu imagen en la carpeta public y llamarla aquí) -->
-      <img 
-        src="/banner-ciudad.jpg" 
-        alt="Automatización de Edificios Inteligentes e Industria" 
-        class="absolute inset-0 w-full h-full object-cover object-center"
-      />
-      
-      <!-- Capa de contraste para el fondo -->
-      <div class="absolute inset-0 bg-black/20"></div>
+      <!-- HTML5 Video/Image Container con soporte fallback -->
+      <picture class="absolute inset-0 w-full h-full">
+        <!-- Si tu imagen se subió como PNG, la web la leerá aquí -->
+        <source srcset="/banner-ciudad.png" type="image/png" />
+        <!-- Si se subió como JPG, la leerá por defecto aquí -->
+        <img 
+          src="/banner-ciudad.jpg" 
+          alt="Zaikurai Security & Control Advanced Home Automation & AI" 
+          class="absolute inset-0 w-full h-full object-cover object-center"
+          onerror="this.style.display='none'; document.getElementById('hero-fallback-bg').style.display='flex';"
+        />
+      </picture>
 
-      <!-- Controles del Slider (Flechas Laterales) -->
+      <!-- Fondo de Respaldo Tecnológico Dinámico en caso de que la imagen no cargue instantáneamente -->
+      <div id="hero-fallback-bg" class="hidden absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/40 flex-col items-center justify-center pointer-events-none">
+        <div class="w-full h-full opacity-10 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      </div>
+      
+      <!-- Capa de contraste sutil para el fondo -->
+      <div class="absolute inset-0 bg-black/30"></div>
+
+      <!-- Controles visuales del Slider (Flechas J&J) -->
       <button class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-white/40 hover:text-white text-4xl font-light transition z-10" aria-label="Anterior">
         ‹
       </button>
@@ -53,20 +64,20 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
         ›
       </button>
 
-      <!-- Contenedor del Texto en la Parte Inferior -->
+      <!-- Título principal en mayúsculas delgadas en la parte inferior sobre la imagen -->
       <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pt-40 pb-16 px-6">
         <div class="max-w-7xl mx-auto text-center">
-          <h1 class="text-white text-4xl md:text-7xl font-extralight tracking-[0.2em] uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">
+          <h1 class="text-white text-3xl md:text-6xl font-extralight tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
             Automatización de Edificios
           </h1>
-          <p class="text-zinc-400 font-mono text-[10px] uppercase tracking-[0.3em] mt-3 opacity-90">
-            Zaikurai Tech Control
+          <p class="text-cyan-400 font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] mt-3 opacity-95">
+            Zaikurai Security & Control • Advanced Home Automation & AI
           </p>
         </div>
       </div>
     </header>
 
-    <!-- 3. QUIÉNES SOMOS (Modelo Corporativo de Ingeniería) -->
+    <!-- 3. QUIÉNES SOMOS -->
     <section id="quienes-somos" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-7 space-y-4">
@@ -93,7 +104,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
       </div>
     </section>
 
-    <!-- 4. SERVICIOS Y ESPECIALIDADES (Categorización Industrial) -->
+    <!-- 4. SERVICIOS Y ESPECIALIDADES -->
     <section id="servicios" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <h2 class="text-3xl font-bold text-white md:text-4xl">Especialidades e Ingeniería de Control</h2>
@@ -122,7 +133,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
           <div class="pt-6 font-mono text-[11px] text-slate-500 tracking-wider">// CONTROLADORES / VÁLVULAS / ACTUADORES</div>
         </div>
 
-        <!-- Tarjeta 3: Seguridad Electrónica e Incendios -->
+        <!-- Tarjeta 3: Seguridad -->
         <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between group hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">03 . SEGURIDAD INTEGRAL</div>
@@ -135,7 +146,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
       </div>
     </section>
 
-    <!-- 5. PROYECTOS / SOSTENIBILIDAD -->
+    <!-- 5. PROYECTOS / PROTOCOLOS -->
     <section id="proyectos" class="py-20 px-6 max-w-7xl mx-auto">
       <div class="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <div class="md:col-span-2 space-y-4">
@@ -148,17 +159,16 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
         <div class="flex flex-col items-start md:items-end justify-center">
           <div class="font-mono text-xs text-slate-400 border border-slate-800 bg-slate-950 px-4 py-2 rounded-lg">
             Protocolos Soportados: <br/>
-            <span class="text-cyan-400 font-bold">BACnet, Modbus, LonWorks, MQTT</span>
+            <span class="text-cyan-400 font-bold">BACnet, Modbus, MQTT, Zigbee 3.0</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6. CONTACTO Y UBICACIÓN -->
+    <!-- 6. CONTACTO -->
     <section id="contacto" class="py-20 px-6 max-w-4xl mx-auto border-t border-slate-800">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         
-        <!-- Datos de contacto corporativos -->
         <div class="space-y-6">
           <div>
             <h2 class="text-3xl font-bold text-white">Contáctanos</h2>
@@ -171,13 +181,9 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
             <p class="flex items-center gap-2">
               <span class="text-cyan-400 font-mono">✉️</span> info@zaikurai.com
             </p>
-            <p class="flex items-center gap-2">
-              <span class="text-cyan-400 font-mono">📞</span> +(51) 01 365 2486
-            </p>
           </div>
         </div>
 
-        <!-- Formulario -->
         <form id="contact-form" class="space-y-4 bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-xl">
           <div>
             <label class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Nombre / Empresa</label>
@@ -188,7 +194,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
             <input type="email" name="email" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="ingenieria@empresa.com" />
           </div>
           <div>
-            <label class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Mensaje o Especificación Técnica</label>
+            <label class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Mensaje Técnica</label>
             <textarea name="mensaje" rows="4" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="Describa los requerimientos de automatización..."></textarea>
           </div>
           <button type="submit" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-lg transition text-sm tracking-wide">
