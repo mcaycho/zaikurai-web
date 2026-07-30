@@ -2,13 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 
 const title = "ZAIKURAI - Inmótica, Control e Integración IoT";
-const description = "Plataforma de automatización, supervisión SCADA/BMS y gestión energética para edificios, hoteles e industria.";
+const description = "Ingeniería de automatización, supervisión SCADA/BMS y soluciones sostenibles para edificios e industrias.";
 ---
 
 <Layout title={title} description={description}>
-  <main class="min-h-screen bg-slate-950 text-slate-100 font-sans">
+  <main class="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950">
 
-    <!-- BARRA DE NAVEGACIÓN SUPERIOR (ESTILO J&J) -->
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR (Estilo J&J TechControl) -->
     <nav class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <!-- Logo Branding -->
@@ -23,189 +23,212 @@ const description = "Plataforma de automatización, supervisión SCADA/BMS y ges
         <div class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
           <a href="#inicio" class="hover:text-cyan-400 transition">Inicio</a>
           <a href="#quienes-somos" class="hover:text-cyan-400 transition">Quiénes Somos</a>
-          <a href="#servicios" class="hover:text-cyan-400 transition">Servicios</a>
-          <a href="#soluciones" class="hover:text-cyan-400 transition">Soluciones</a>
+          <a href="#servicios" class="hover:text-cyan-400 transition">Especialidades</a>
+          <a href="#soluciones" class="hover:text-cyan-400 transition">Sostenibilidad</a>
           <a href="#contacto" class="hover:text-cyan-400 transition">Contacto</a>
         </div>
 
-        <a href="#contacto" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-md text-sm transition">
-          Cotizar
+        <a href="#contacto" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-md text-sm transition shadow-lg shadow-cyan-950/50">
+          Cotizar Proyecto
         </a>
       </div>
     </nav>
 
-    <!-- HERO SECTION CON MOCKUP DE PANTALLAS DE CONTROL (SCADA / DASHBOARD) -->
-    <header id="inicio" class="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 py-16 px-6">
+    <!-- HERO SECTION: ENFOQUE EN EDIFICIOS INTELIGENTES E INDUSTRIA -->
+    <header id="inicio" class="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 py-20 px-6">
       <div class="max-w-7xl mx-auto space-y-12">
         
-        <!-- Texto del Hero -->
-        <div class="text-center space-y-4 max-w-3xl mx-auto">
+        <div class="text-center space-y-4 max-w-4xl mx-auto">
           <span class="inline-block px-3 py-1 text-xs font-mono uppercase tracking-widest text-cyan-400 bg-cyan-950/80 border border-cyan-800/60 rounded-full">
-            Supervisión & Control Centralizado
+            Ingeniería para Soluciones Sostenibles
           </span>
-          <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Gestión Inteligente de Infraestructura y <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Sistemas SCADA / IoT</span>
+          <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Automatización y Control Avanzado de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Edificios e Industria</span>
           </h1>
-          <p class="text-slate-400 text-base md:text-lg">
-            Monitoreo en tiempo real de temperatura, HVAC, consumo eléctrico trifásico y automatización de procesos para inmuebles e industria.
+          <p class="text-slate-400 text-base md:text-xl max-w-2xl mx-auto font-normal">
+            Soluciones integrales de alta gama en sistemas BMS, SCADA y eficiencia energética orientadas a la excelencia operacional y confort.
           </p>
         </div>
 
-        <!-- REPLICACIÓN DEL MOCKUP VISUAL (PANTALLAS SIMULADAS SCADA/DASHBOARD) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          
-          <!-- Pantalla Principal (Estilo Dashboard de Control HVAC / Proceso) -->
-          <div class="lg:col-span-8 bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow-2xl shadow-cyan-950/50">
-            <!-- Barra superior del monitor simulado -->
-            <div class="bg-slate-800 px-4 py-2 flex items-center justify-between border-b border-slate-700 text-xs font-mono text-slate-400">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-                <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
-                <span class="ml-2 text-slate-300 font-semibold">ZAIKURAI Control Center v2.4 - BMS/SCADA</span>
-              </div>
-              <span>ONLINE | Modbus / MQTT Active</span>
+        <!-- DASHBOARD SCADA PROFESIONAL INTEGRADO -->
+        <div class="max-w-5xl mx-auto bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow-2xl shadow-cyan-950/40">
+          <div class="bg-slate-800 px-4 py-2 flex items-center justify-between border-b border-slate-700 text-xs font-mono text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500/90 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/90 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-green-500/90 inline-block"></span>
+              <span class="ml-2 text-slate-300 font-semibold">ZAIKURAI Smart Station - Centralized BMS</span>
             </div>
-
-            <!-- Contenido Visual de la Pantalla Principal -->
-            <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-950/90 font-mono text-xs">
-              
-              <!-- Árbol de Sensores / Diagrama -->
-              <div class="p-3 bg-slate-900 border border-slate-800 rounded space-y-2">
-                <p class="text-cyan-400 font-bold border-b border-slate-800 pb-1">// Zonas HVAC</p>
-                <div class="text-slate-300 space-y-1">
-                  <p class="text-emerald-400">✔ Chiller Principal [21.5°C]</p>
-                  <p class="text-emerald-400">✔ Bomba de Agua 01 [RUN]</p>
-                  <p class="text-yellow-400">⚠ Tablero Trifásico [88% Cap]</p>
-                  <p class="text-slate-500">↳ Zona 04 - Sensor Humedad</p>
-                </div>
-              </div>
-
-              <!-- Gráfico Simulado de Telemetría -->
-              <div class="md:col-span-2 p-3 bg-slate-900 border border-slate-800 rounded flex flex-col justify-between">
-                <div class="flex justify-between text-slate-400">
-                  <span>Monitoreo de Carga Térmica (kWh)</span>
-                  <span class="text-cyan-400">350 kW/h</span>
-                </div>
-                <div class="h-28 flex items-end gap-2 pt-4">
-                  <div class="w-1/6 bg-cyan-950 border border-cyan-500 h-[40%] rounded-t"></div>
-                  <div class="w-1/6 bg-cyan-950 border border-cyan-500 h-[65%] rounded-t"></div>
-                  <div class="w-1/6 bg-cyan-950 border border-cyan-500 h-[50%] rounded-t"></div>
-                  <div class="w-1/6 bg-cyan-500 h-[85%] rounded-t"></div>
-                  <div class="w-1/6 bg-cyan-950 border border-cyan-500 h-[60%] rounded-t"></div>
-                  <div class="w-1/6 bg-cyan-950 border border-cyan-500 h-[75%] rounded-t"></div>
-                </div>
-              </div>
-
-            </div>
+            <span class="text-cyan-400 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span> SISTEMA ACTIVO</span>
           </div>
-
-          <!-- Pantalla Secundaria (Monitor Lateral / Tablet de Operación) -->
-          <div class="lg:col-span-4 bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow-xl">
-            <div class="bg-slate-800 px-4 py-2 border-b border-slate-700 text-xs font-mono text-slate-300">
-              Terminal HMI / Tablet de Mantenimiento
-            </div>
-            <div class="p-6 bg-slate-950/90 space-y-4">
-              <div class="p-3 bg-slate-900 border border-slate-800 rounded">
-                <p class="text-xs font-mono text-slate-400">Estado del Sistema</p>
-                <p class="text-lg font-bold text-emerald-400 mt-1">Operacional 100%</p>
-              </div>
-              <div class="p-3 bg-slate-900 border border-slate-800 rounded space-y-2 text-xs text-slate-300">
-                <p class="font-bold text-cyan-400">Telemetría Directa</p>
-                <p>• RS485 / Modbus: Conectado</p>
-                <p>• Gateway Zigbee 3.0: OK</p>
-                <p>• Protocolo SNMP v3: Activo</p>
-              </div>
-            </div>
+          <div class="relative bg-slate-950 aspect-[16/9] md:aspect-[21/9] overflow-hidden">
+            <img 
+              src="watermarked_img_9768118987142878499.png" 
+              alt="Interfaz SCADA profesional de Zaikurai para control industrial" 
+              class="w-full h-full object-cover opacity-90 object-center"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
           </div>
-
         </div>
 
       </div>
     </header>
 
-    <!-- QUIÉNES SOMOS -->
+    <!-- QUIÉNES SOMOS (INSPIRADO EN EL MODELO CORPORATIVO) -->
     <section id="quienes-somos" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-4">
-          <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">// Especialistas en Inmótica</span>
-          <h2 class="text-3xl font-bold text-white">Ingeniería e Integración de Control</h2>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            En **ZAIKURAI** nos especializamos en transformar infraestructuras tradicionales en sistemas altamente eficientes, integrando sensores, tableros eléctricos y software de gestión en tiempo real.
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">// Trayectoria e Integración</span>
+          <h2 class="text-3xl font-bold text-white md:text-4xl">Soluciones Innovadoras en Automatización</h2>
+          <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+            En <strong>ZAIKURAI</strong> proporcionamos soluciones integrales llave en mano orientadas al diseño, suministro y puesta en marcha de proyectos de control. Nos enfocamos en el <strong>ahorro de energía</strong>, la reducción del impacto ambiental y la valorización de la infraestructura corporativa.
           </p>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Nuestras soluciones abarcan desde el monitoreo de energía y control de climatización en hoteles hasta la automatización industrial mediante protocolos estándar.
+          <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+            Trabajamos bajo estándares internacionales integrando instrumentación de alta gama y sistemas de supervisión distribuidos para maximizar la calidad del ambiente de trabajo y mitigar los costos por excesos de consumo.
           </p>
         </div>
-        <div class="grid grid-cols-2 gap-4 text-center">
-          <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl">
-            <p class="text-3xl font-extrabold text-cyan-400">+30%</p>
-            <p class="text-xs text-slate-400 mt-1">Ahorro Energético Promedio</p>
+        
+        <div class="lg:col-span-5 grid grid-cols-2 gap-4 text-center">
+          <div class="p-6 bg-slate-900 border border-slate-800/80 rounded-xl flex flex-col justify-center">
+            <p class="text-4xl font-extrabold text-cyan-400">LEED</p>
+            <p class="text-xs text-slate-400 mt-2 font-mono">Compatibilidad con Estándares Verdes</p>
           </div>
-          <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl">
-            <p class="text-3xl font-extrabold text-cyan-400">24/7</p>
-            <p class="text-xs text-slate-400 mt-1">Monitoreo & Telemetría</p>
+          <div class="p-6 bg-slate-900 border border-slate-800/80 rounded-xl flex flex-col justify-center">
+            <p class="text-4xl font-extrabold text-blue-500">100%</p>
+            <p class="text-xs text-slate-400 mt-2 font-mono">Soporte Post-Venta Garantizado</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" class="py-20 px-6 max-w-7xl mx-auto">
+    <!-- ESPECIALIDADES / PRODUCTOS (Estructura de categorización de J&J TechControl) -->
+    <section id="servicios" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800">
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-3xl font-bold text-white">Nuestros Servicios</h2>
-        <p class="text-slate-400 mt-2">Soluciones completas de ingeniería de control y automatización.</p>
+        <h2 class="text-3xl font-bold text-white md:text-4xl">Especialidades e Ingeniería de Control</h2>
+        <p class="text-slate-400 mt-2">Equipamiento, instrumentación y software de última generación para sistemas críticos.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl space-y-3">
-          <div class="text-cyan-400 text-2xl font-bold">01</div>
-          <h3 class="text-xl font-bold text-white">Tableros de Automatización</h3>
-          <p class="text-slate-400 text-sm">Armado e integración de tableros eléctricos con protecciones inteligentes, conmutación y medidores trifásicos.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta 1: Tableros y Celdas con Imagen Profesional -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between group">
+          <div class="p-8 space-y-3">
+            <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">01 . SISTEMAS DE ENERGÍA</div>
+            <h3 class="text-xl font-bold text-white">Subestaciones y Tableros</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Suministro y armado de tableros de automatización con medidores de energía inteligentes y transformadores de corriente de alta precisión.</p>
+          </div>
+          <div class="h-44 overflow-hidden relative border-t border-slate-850">
+            <img 
+              src="watermarked_img_12343545625456164957.png" 
+              alt="Tablero de automatización industrial y celdas de control Zaikurai" 
+              class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition duration-700"
+            />
+          </div>
         </div>
-        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl space-y-3">
-          <div class="text-cyan-400 text-2xl font-bold">02</div>
-          <h3 class="text-xl font-bold text-white">Sistemas BMS / SCADA</h3>
-          <p class="text-slate-400 text-sm">Supervisión centralizada de climatización (HVAC), bombas de agua, iluminación y sensores de seguridad.</p>
+
+        <!-- Tarjeta 2: HVAC -->
+        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between group hover:border-slate-700 transition">
+          <div class="space-y-3">
+            <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">02 . CLIMATIZACIÓN</div>
+            <h3 class="text-xl font-bold text-white">HVAC - Aire Acondicionado</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Controladores avanzados, válvulas motorizadas, actuadores y sensores destinados a regular la carga térmica óptima y el confort ambiental.</p>
+          </div>
+          <div class="pt-6 font-mono text-[11px] text-slate-500 tracking-wider">// CONTROLADORES / VÁLVULAS / ACTUADORES</div>
         </div>
-        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl space-y-3">
-          <div class="text-cyan-400 text-2xl font-bold">03</div>
-          <h3 class="text-xl font-bold text-white">Integración Retrofit IoT</h3>
-          <p class="text-slate-400 text-sm">Modernización de edificios e instalaciones existentes sin necesidad de cambiar la cableización existente.</p>
+
+        <!-- Tarjeta 3: Seguridad Electrónica e Incendios -->
+        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between group hover:border-slate-700 transition">
+          <div class="space-y-3">
+            <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">03 . SEGURIDAD INTEGRAL</div>
+            <h3 class="text-xl font-bold text-white">CCTV & Detección de Incendios</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Integración de sistemas de videovigilancia distribuidos, control de accesos restringidos (lectores y tarjetas) y paneles centrales contra incendios.</p>
+          </div>
+          <div class="pt-6 font-mono text-[11px] text-slate-500 tracking-wider">// SOFTWARE DE VIDEO / DETECTORES / ACCESOS</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOSTENIBILIDAD Y VALOR DE MARCA -->
+    <section id="soluciones" class="py-20 px-6 max-w-7xl mx-auto">
+      <div class="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div class="md:col-span-2 space-y-4">
+          <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Tecnología de última generación</span>
+          <h3 class="text-2xl font-bold text-white md:text-3xl">Por qué la Automatización es Clave para su Empresa</h3>
+          <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+            La automatización juega un papel fundamental no solo por motivos de eficiencia, confort y seguridad, sino también como parte estratégica en la imagen de la organización, certificando que su empresa se preocupa por crecer y mejorar tecnológicamente bajo políticas sostenibles.
+          </p>
+        </div>
+        <div class="flex flex-col items-start md:items-end justify-center">
+          <div class="font-mono text-xs text-slate-400 border border-slate-800 bg-slate-950 px-4 py-2 rounded-lg">
+            Protocolos Soportados: <br/>
+            <span class="text-cyan-400 font-bold">BACnet, Modbus, LonWorks, MQTT</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="py-20 px-6 max-w-3xl mx-auto border-t border-slate-800">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-white">Contáctanos</h2>
-        <p class="text-slate-400 mt-2">Solicita una asesoría o cotización para tu proyecto.</p>
-      </div>
+    <!-- CONTACTO Y UBICACIÓN -->
+    <section id="contacto" class="py-20 px-6 max-w-4xl mx-auto border-t border-slate-800">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        
+        <!-- Datos de contacto corporativos corporativos -->
+        <div class="space-y-6">
+          <div>
+            <h2 class="text-3xl font-bold text-white">Contáctanos</h2>
+            <p class="text-slate-400 mt-2 text-sm">Comunícate con nuestro departamento de ingeniería para cotizaciones y soporte técnico.</p>
+          </div>
+          <div class="space-y-3 font-sans text-sm text-slate-300">
+            <p class="flex items-center gap-2">
+              <span class="text-cyan-400 font-mono">📍</span> Lima, Perú
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="text-cyan-400 font-mono">✉️</span> info@zaikurai.com
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="text-cyan-400 font-mono">📞</span> +(51) 01 365 2486
+            </p>
+          </div>
+        </div>
 
-      <form class="space-y-4 bg-slate-900 p-8 rounded-xl border border-slate-800" onsubmit="event.preventDefault();">
-        <div>
-          <label class="block text-sm font-medium text-slate-300 mb-1">Nombre / Empresa</label>
-          <input type="text" required class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-white focus:outline-none focus:border-cyan-500" placeholder="Ej. Constructora X" />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-300 mb-1">Correo Electrónico</label>
-          <input type="email" required class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-white focus:outline-none focus:border-cyan-500" placeholder="contacto@empresa.com" />
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-300 mb-1">Mensaje o Requerimiento</label>
-          <textarea rows="4" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-white focus:outline-none focus:border-cyan-500" placeholder="Describe tu proyecto..."></textarea>
-        </div>
-        <button type="submit" class="w-full py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-lg transition">
-          Enviar Mensaje
-        </button>
-      </form>
+        <!-- Formulario Profesional -->
+        <form id="contact-form" class="space-y-4 bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-xl">
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Nombre / Empresa</label>
+            <input type="text" name="empresa" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="Ej. Corporación Constructora" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Correo Electrónico</label>
+            <input type="email" name="email" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="ingenieria@empresa.com" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Mensaje o Especificación Técnica</label>
+            <textarea name="mensaje" rows="4" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="Describa el alcance del proyecto o los requerimientos de automatización..."></textarea>
+          </div>
+          <button type="submit" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-lg transition text-sm tracking-wide">
+            Enviar Requerimiento
+          </button>
+        </form>
+
+      </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm bg-slate-950">
-      <p>&copy; {new Date().getFullYear()} ZAIKURAI. Todos los derechos reservados.</p>
+    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-xs bg-slate-950 font-mono">
+      <p>&copy; {new Date().getFullYear()} ZAIKURAI TECH. Todos los derechos reservados.</p>
+      <p class="text-slate-600 mt-1 text-[10px]">Ingeniería para Soluciones Sostenibles en Control e Inmótica.</p>
     </footer>
 
   </main>
 </Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    console.log("Datos de cotización:", Object.fromEntries(formData));
+    alert("Requerimiento recibido de forma correcta. Un ingeniero de proyectos se comunicará a la brevedad.");
+    form.reset();
+  });
+</script>
