@@ -15,7 +15,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
         <!-- Logo Corporativo (Izquierda) -->
         <a href="#inicio" class="flex items-center gap-3 shrink-0 group">
           <div class="w-9 h-9 rounded bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-      
+            Z
           </div>
           <div class="flex flex-col">
             <span class="text-xl font-bold tracking-wider text-white leading-none">ZAIKURAI</span>
@@ -55,18 +55,15 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
     <!-- 2. HERO SECTION / BANNER SLIDER -->
     <header id="inicio" class="relative w-full h-[75vh] md:h-[85vh] overflow-hidden bg-slate-900 border-b border-slate-800">
       
-      <!-- Contenedor con soporte doble PNG / JPG -->
-      <picture class="absolute inset-0 w-full h-full">
-        <source srcset="/banner-ciudad.png" type="image/png" />
-        <img 
-          src="/banner-ciudad.jpg" 
-          alt="Zaikurai Security & Control Advanced Home Automation & AI" 
-          class="absolute inset-0 w-full h-full object-cover object-center"
-          onerror="this.style.display='none'; document.getElementById('hero-fallback-bg').style.display='flex';"
-        />
-      </picture>
+      <!-- Imagen Banner desde public/banner-ciudad.jpg -->
+      <img 
+        src="/banner-ciudad.jpg" 
+        alt="Zaikurai Security & Control Advanced Home Automation & AI" 
+        class="absolute inset-0 w-full h-full object-cover object-center"
+        onerror="this.style.display='none'; document.getElementById('hero-fallback-bg').style.display='flex';"
+      />
 
-      <!-- Fondo Fallback de alta tecnología si no carga la imagen -->
+      <!-- Fondo Fallback en caso de que la imagen no cargue -->
       <div id="hero-fallback-bg" class="hidden absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/40 flex-col items-center justify-center pointer-events-none">
         <div class="w-full h-full opacity-10 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px]"></div>
       </div>
@@ -224,14 +221,13 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
 </Layout>
 
 <style is:global>
-  /* Desplazamiento suave para toda la web */
   html {
     scroll-behavior: smooth;
   }
 </style>
 
 <script>
-  // --- A. LÓGICA DEL MENÚ MÓVIL ---
+  // A. MENÚ MÓVIL
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const iconBars = document.getElementById('menu-icon-bars');
@@ -252,7 +248,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
     }
   });
 
-  // --- B. SCROLLSPY (RESALTADO DINÁMICO DE MENÚ) Y AUTO-CIERRE EN MÓVIL ---
+  // B. SCROLLSPY Y AUTO-CIERRE EN MÓVIL
   const desktopLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
   const mobileLinks = document.querySelectorAll<HTMLAnchorElement>('.mobile-nav-link');
   const sections = document.querySelectorAll<HTMLElement>('header[id], section[id]');
@@ -268,7 +264,6 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
       }
     });
 
-    // Actualizar escritorio
     desktopLinks.forEach((link) => {
       const href = link.getAttribute('href')?.replace('#', '');
       if (href === currentSectionId) {
@@ -280,7 +275,6 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
       }
     });
 
-    // Actualizar móvil
     mobileLinks.forEach((link) => {
       const href = link.getAttribute('href')?.replace('#', '');
       if (href === currentSectionId) {
@@ -296,7 +290,6 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
   window.addEventListener('scroll', updateActiveMenu);
   window.addEventListener('load', updateActiveMenu);
 
-  // Cerrar menú móvil automáticamente tras hacer clic en un enlace
   mobileLinks.forEach((link) => {
     link.addEventListener('click', () => {
       mobileMenu?.classList.add('hidden');
@@ -306,7 +299,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
     });
   });
 
-  // --- C. MANEJO DE FORMULARIO DE CONTACTO ---
+  // C. FORMULARIO DE CONTACTO
   const form = document.getElementById('contact-form') as HTMLFormElement;
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
