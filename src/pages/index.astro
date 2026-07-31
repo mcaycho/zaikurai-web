@@ -8,38 +8,56 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
 <Layout title={title} description={description}>
   <main class="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950">
 
-    <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR (Alineada a la derecha y con espacio generoso) -->
+    <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR Y MÓVIL -->
     <nav class="bg-[#2a2a2a] border-b border-zinc-800 sticky top-0 z-50">
-      <div class="w-full max-w-[1920px] mx-auto flex items-center justify-between h-20 px-8">
+      <div class="w-full max-w-[1920px] mx-auto flex items-center justify-between h-20 px-6 md:px-8">
         
         <!-- Logo Corporativo (Izquierda) -->
-        <div class="flex items-center gap-3 shrink-0">
-          <div class="w-9 h-9 rounded bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl">
-           
+        <a href="#inicio" class="flex items-center gap-3 shrink-0 group">
+          <div class="w-9 h-9 rounded bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+            Z
           </div>
-          <span class="text-xl font-bold tracking-wider text-white">ZAIKURAI <span class="text-xs text-cyan-400 font-mono font-normal">SECURITY & CONTROL ADVANCED HOME AUTOMATION & AI</span></span>
+          <div class="flex flex-col">
+            <span class="text-xl font-bold tracking-wider text-white leading-none">ZAIKURAI</span>
+            <span class="text-[9px] text-cyan-400 font-mono font-normal tracking-tight mt-1">SECURITY & CONTROL • ADVANCED AUTOMATION & AI</span>
+          </div>
+        </a>
+
+        <!-- Menú Escritorio (Extrema derecha) -->
+        <div id="nav-desktop" class="hidden md:flex h-full items-center text-sm font-normal text-zinc-300 ml-auto">
+          <a href="#inicio" class="nav-link bg-[#1a1a1a] text-white px-8 h-20 flex items-center border-b-2 border-cyan-500 transition-all duration-200">Inicio</a>
+          <a href="#quienes-somos" class="nav-link hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center border-b-2 border-transparent transition-all duration-200">Quiénes Somos</a>
+          <a href="#servicios" class="nav-link hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center border-b-2 border-transparent transition-all duration-200">Servicios</a>
+          <a href="#proyectos" class="nav-link hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center border-b-2 border-transparent transition-all duration-200">Proyectos</a>
+          <a href="#contacto" class="nav-link hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center border-b-2 border-transparent transition-all duration-200">Contacto</a>
         </div>
 
-        <!-- Menú Principal empujado a la extrema derecha con ml-auto y separado por pestañas -->
-        <div class="hidden md:flex h-full items-center text-sm font-normal text-zinc-300 ml-auto">
-          <a href="#inicio" class="bg-[#1a1a1a] text-white px-8 h-20 flex items-center border-b-2 border-cyan-500 transition">Inicio</a>
-          <a href="#quienes-somos" class="hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center transition">Quiénes Somos</a>
-          <a href="#servicios" class="hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center transition">Servicios</a>
-          <a href="#proyectos" class="hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center transition">Proyectos</a>
-          <a href="#contacto" class="hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center transition">Contacto</a>
-        </div>
+        <!-- Botón Menú Hamburguesa (Solo Móvil) -->
+        <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Abrir Menú">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon-bars" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
 
+      </div>
+
+      <!-- Menú Desplegable Móvil -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#222222] border-b border-zinc-800 px-6 py-4 flex-col gap-2">
+        <a href="#inicio" class="mobile-nav-link text-white bg-[#1a1a1a] border-l-4 border-cyan-500 px-4 py-3 rounded-r text-sm font-medium">Inicio</a>
+        <a href="#quienes-somos" class="mobile-nav-link text-zinc-300 hover:text-white hover:bg-[#1a1a1a] border-l-4 border-transparent px-4 py-3 rounded-r text-sm font-medium">Quiénes Somos</a>
+        <a href="#servicios" class="mobile-nav-link text-zinc-300 hover:text-white hover:bg-[#1a1a1a] border-l-4 border-transparent px-4 py-3 rounded-r text-sm font-medium">Servicios</a>
+        <a href="#proyectos" class="mobile-nav-link text-zinc-300 hover:text-white hover:bg-[#1a1a1a] border-l-4 border-transparent px-4 py-3 rounded-r text-sm font-medium">Proyectos</a>
+        <a href="#contacto" class="mobile-nav-link text-zinc-300 hover:text-white hover:bg-[#1a1a1a] border-l-4 border-transparent px-4 py-3 rounded-r text-sm font-medium">Contacto</a>
       </div>
     </nav> 
 
-    <!-- 2. HERO SECTION / BANNER SLIDER: Fondo con doble compatibilidad de formato (.jpg / .png) -->
+    <!-- 2. HERO SECTION / BANNER SLIDER -->
     <header id="inicio" class="relative w-full h-[75vh] md:h-[85vh] overflow-hidden bg-slate-900 border-b border-slate-800">
       
-      <!-- HTML5 Video/Image Container con soporte fallback -->
+      <!-- Contenedor con soporte doble PNG / JPG -->
       <picture class="absolute inset-0 w-full h-full">
-        <!-- Si tu imagen se subió como PNG, la web la leerá aquí -->
         <source srcset="/banner-ciudad.png" type="image/png" />
-        <!-- Si se subió como JPG, la leerá por defecto aquí -->
         <img 
           src="/banner-ciudad.jpg" 
           alt="Zaikurai Security & Control Advanced Home Automation & AI" 
@@ -48,24 +66,15 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
         />
       </picture>
 
-      <!-- Fondo de Respaldo Tecnológico Dinámico en caso de que la imagen no cargue instantáneamente -->
+      <!-- Fondo Fallback de alta tecnología si no carga la imagen -->
       <div id="hero-fallback-bg" class="hidden absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/40 flex-col items-center justify-center pointer-events-none">
         <div class="w-full h-full opacity-10 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px]"></div>
       </div>
       
-      <!-- Capa de contraste sutil para el fondo -->
-      <div class="absolute inset-0 bg-black/30"></div>
+      <div class="absolute inset-0 bg-black/40"></div>
 
-      <!-- Controles visuales del Slider (Flechas J&J) -->
-      <button class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-white/40 hover:text-white text-4xl font-light transition z-10" aria-label="Anterior">
-        ‹
-      </button>
-      <button class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-white/40 hover:text-white text-4xl font-light transition z-10" aria-label="Siguiente">
-        ›
-      </button>
-
-      <!-- Título principal en mayúsculas delgadas en la parte inferior sobre la imagen -->
-      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pt-40 pb-16 px-6">
+      <!-- Título Principal Inferior -->
+      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pt-40 pb-16 px-6">
         <div class="max-w-7xl mx-auto text-center">
           <h1 class="text-white text-3xl md:text-6xl font-extralight tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
             Automatización de Edificios
@@ -114,7 +123,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- Tarjeta 1: Energía -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between group p-8 hover:border-slate-700 transition">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between p-8 hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">01 . SISTEMAS DE ENERGÍA</div>
             <h3 class="text-xl font-bold text-white">Subestaciones y Tableros</h3>
@@ -124,7 +133,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
         </div>
 
         <!-- Tarjeta 2: HVAC -->
-        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between group hover:border-slate-700 transition">
+        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">02 . CLIMATIZACIÓN</div>
             <h3 class="text-xl font-bold text-white">HVAC - Aire Acondicionado</h3>
@@ -134,7 +143,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
         </div>
 
         <!-- Tarjeta 3: Seguridad -->
-        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between group hover:border-slate-700 transition">
+        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">03 . SEGURIDAD INTEGRAL</div>
             <h3 class="text-xl font-bold text-white">CCTV & Detección de Incendios</h3>
@@ -194,7 +203,7 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
             <input type="email" name="email" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="ingenieria@empresa.com" />
           </div>
           <div>
-            <label class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Mensaje Técnica</label>
+            <label class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Mensaje Técnico</label>
             <textarea name="mensaje" rows="4" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="Describa los requerimientos de automatización..."></textarea>
           </div>
           <button type="submit" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-lg transition text-sm tracking-wide">
@@ -214,7 +223,90 @@ const description = "Ingeniería de automatización, supervisión SCADA/BMS y so
   </main>
 </Layout>
 
+<style is:global>
+  /* Desplazamiento suave para toda la web */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
 <script>
+  // --- A. LÓGICA DEL MENÚ MÓVIL ---
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconBars = document.getElementById('menu-icon-bars');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  menuBtn?.addEventListener('click', () => {
+    const isHidden = mobileMenu?.classList.contains('hidden');
+    if (isHidden) {
+      mobileMenu?.classList.remove('hidden');
+      mobileMenu?.classList.add('flex');
+      iconBars?.classList.replace('block', 'hidden');
+      iconClose?.classList.replace('hidden', 'block');
+    } else {
+      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.remove('flex');
+      iconBars?.classList.replace('hidden', 'block');
+      iconClose?.classList.replace('block', 'hidden');
+    }
+  });
+
+  // --- B. SCROLLSPY (RESALTADO DINÁMICO DE MENÚ) Y AUTO-CIERRE EN MÓVIL ---
+  const desktopLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
+  const mobileLinks = document.querySelectorAll<HTMLAnchorElement>('.mobile-nav-link');
+  const sections = document.querySelectorAll<HTMLElement>('header[id], section[id]');
+
+  function updateActiveMenu() {
+    let currentSectionId = '';
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.offsetHeight;
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        currentSectionId = section.getAttribute('id') || '';
+      }
+    });
+
+    // Actualizar escritorio
+    desktopLinks.forEach((link) => {
+      const href = link.getAttribute('href')?.replace('#', '');
+      if (href === currentSectionId) {
+        link.classList.add('bg-[#1a1a1a]', 'text-white', 'border-cyan-500');
+        link.classList.remove('border-transparent');
+      } else {
+        link.classList.remove('bg-[#1a1a1a]', 'text-white', 'border-cyan-500');
+        link.classList.add('border-transparent');
+      }
+    });
+
+    // Actualizar móvil
+    mobileLinks.forEach((link) => {
+      const href = link.getAttribute('href')?.replace('#', '');
+      if (href === currentSectionId) {
+        link.classList.add('bg-[#1a1a1a]', 'text-white', 'border-cyan-500');
+        link.classList.remove('border-transparent', 'text-zinc-300');
+      } else {
+        link.classList.remove('bg-[#1a1a1a]', 'text-white', 'border-cyan-500');
+        link.classList.add('border-transparent', 'text-zinc-300');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveMenu);
+  window.addEventListener('load', updateActiveMenu);
+
+  // Cerrar menú móvil automáticamente tras hacer clic en un enlace
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.remove('flex');
+      iconBars?.classList.replace('hidden', 'block');
+      iconClose?.classList.replace('block', 'hidden');
+    });
+  });
+
+  // --- C. MANEJO DE FORMULARIO DE CONTACTO ---
   const form = document.getElementById('contact-form') as HTMLFormElement;
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
