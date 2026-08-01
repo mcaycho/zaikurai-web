@@ -77,23 +77,33 @@ const navLinks = [
       </div>
     </nav> 
 
-    <!-- 2. HERO SECTION CORREGIDO -->
+    <!-- 2. HERO SECTION CON FONDOS LATERALES DINÁMICOS DE IOT -->
     <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[550px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
-      <div class="absolute inset-0 w-full h-full flex items-center justify-center">
+      
+      <!-- Fondo Dinámico IoT para los bordes oscuros -->
+      <div 
+        id="hero-bg-iot" 
+        class="absolute inset-0 w-full h-full bg-cover bg-center opacity-25 blur-sm transition-all duration-1000 scale-105"
+      ></div>
+
+      <!-- Superposición de degradado para fusionar con el tema oscuro -->
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/60 to-slate-950 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/80 pointer-events-none"></div>
+
+      <!-- Imagen Principal Central ZAIKURAI (Sin Recorte) -->
+      <div class="relative z-10 w-full h-full flex items-center justify-center p-2 md:p-6">
         <Image 
           src={diagramaArquitectura} 
           alt="Vista de infraestructura y arquitectura Zaikurai"
           format="webp"
-          quality={90}
+          quality={95}
           loading="eager"
-          class="w-full h-full object-cover md:object-contain object-top md:object-center block"
+          class="max-w-full max-h-full object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)] rounded-lg"
         />
       </div>
-      
-      <!-- Overlay sutil para legibilidad -->
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/40 pointer-events-none"></div>
 
-      <div class="absolute inset-x-0 bottom-0 pt-32 pb-12 sm:pb-16 px-6 z-10">
+      <!-- Texto inferior sobrepuesto -->
+      <div class="absolute inset-x-0 bottom-0 pb-8 sm:pb-12 px-6 z-20 pointer-events-none">
         <div class="max-w-7xl mx-auto text-center">
           <h1 class="text-white text-2xl sm:text-4xl md:text-5xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
             Automatización de Edificios
@@ -438,4 +448,19 @@ const navLinks = [
     alert("Requerimiento recibido de forma correcta. Un ingeniero de proyectos se comunicará a la brevedad.");
     form.reset();
   });
+
+  // E. CARGAR IMAGEN ALEATORIA DE IOT PARA LOS BORDES DE NAVEGACIÓN
+  const iotImages = [
+    'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80', // Circuito / Hardware
+    'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=1920&q=80', // IoT / Smart Home
+    'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=1920&q=80', // Data Center / Servidores
+    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80', // Malla Digital / Red
+    'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1920&q=80'  // Computación / Cyber
+  ];
+
+  const heroBg = document.getElementById('hero-bg-iot');
+  if (heroBg) {
+    const randomImg = iotImages[Math.floor(Math.random() * iotImages.length)];
+    heroBg.style.backgroundImage = `url('${randomImg}')`;
+  }
 </script>
