@@ -1,9 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
----
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
 
 // Importación de assets principales y de fondo para el Hero
 import diagramaArquitectura from '../assets/diagrama-arquitectura.jpg';
@@ -13,15 +10,7 @@ import iotBg3 from '../assets/images/iot-bg-3.jpg';
 
 // Arreglo de fondos disponibles localmente
 const iotImages = [iotBg1, iotBg2, iotBg3];
-// Selección aleatoria en tiempo de compilación/servidor
 const randomBg = iotImages[Math.floor(Math.random() * iotImages.length)];
-
-const title = "ZAIKURAI - Domótica, Inmótica, Control e Integración IoT";
-const description = "Ingeniería de automatización, supervisión SCADA/BMS y soluciones sostenibles para edificios e industrias.";
-// Resto de tus enlaces...
----
-// Importación de assets
-import diagramaArquitectura from '../assets/diagrama-arquitectura.jpg';
 
 const title = "ZAIKURAI - Domótica, Inmótica, Control e Integración IoT";
 const description = "Ingeniería de automatización, supervisión SCADA/BMS y soluciones sostenibles para edificios e industrias.";
@@ -95,10 +84,9 @@ const navLinks = [
       </div>
     </nav> 
 
- <!-- 2. HERO SECTION CON FONDO ALEATORIO DE IOT Y TARJETA CENTRAL -->
+    <!-- 2. HERO SECTION -->
     <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[600px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
       
-      <!-- 1. Fondo optimizado con Astro Image en la capa más baja -->
       <div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <Image 
           src={randomBg} 
@@ -110,11 +98,9 @@ const navLinks = [
         />
       </div>
 
-      <!-- 2. Capas de oscurecimiento (viñeta) -->
       <div class="absolute inset-0 bg-radial from-transparent via-slate-950/70 to-slate-950 pointer-events-none z-10"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/80 pointer-events-none z-10"></div>
 
-      <!-- 3. Contenedor Central -->
       <div class="relative z-20 w-full max-w-4xl h-[70%] flex items-center justify-center p-4">
         <Image 
           src={diagramaArquitectura} 
@@ -126,7 +112,6 @@ const navLinks = [
         />
       </div>
 
-      <!-- 4. Texto inferior sobrepuesto -->
       <div class="absolute inset-x-0 bottom-4 sm:bottom-6 px-6 z-30 pointer-events-none text-center">
         <div class="max-w-7xl mx-auto">
           <h1 class="text-white text-xl sm:text-3xl md:text-4xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
@@ -147,9 +132,6 @@ const navLinks = [
           <h2 class="text-3xl font-bold text-white md:text-4xl">Soluciones Innovadoras en Automatización</h2>
           <p class="text-slate-400 text-sm md:text-base leading-relaxed">
             En <strong>ZAIKURAI</strong> proporcionamos soluciones integrales llave en mano orientadas al diseño, suministro y puesta en marcha de proyectos de control e inmótica. Nos enfocamos en el <strong>ahorro de energía</strong>, la reducción del impacto ambiental y la valorización de la infraestructura corporativa.
-          </p>
-          <p class="text-slate-400 text-sm md:text-base leading-relaxed">
-            Trabajamos bajo estándares internacionales integrando instrumentación de alta gama y sistemas de supervisión distribuidos para maximizar la calidad del ambiente de trabajo y mitigar los costos por excesos de consumo.
           </p>
         </div>
         
@@ -178,7 +160,7 @@ const navLinks = [
           <div class="space-y-3">
             <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">01 . SISTEMAS DE ENERGÍA</div>
             <h3 class="text-xl font-bold text-white">Subestaciones y Tableros</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Suministro y armado de tableros de automatización con medidores de energía inteligentes y transformadores de corriente de alta precisión.</p>
+            <p class="text-slate-400 text-sm leading-relaxed">Suministro y armado de tableros de automatización con medidores de energía inteligentes y transformadores de corriente.</p>
           </div>
           <div class="pt-6 font-mono text-[11px] text-slate-500 tracking-wider">// TELEMETRÍA DE POTENCIA / PROTECCIONES</div>
         </div>
@@ -187,7 +169,7 @@ const navLinks = [
           <div class="space-y-3">
             <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">02 . CLIMATIZACIÓN</div>
             <h3 class="text-xl font-bold text-white">HVAC - Aire Acondicionado</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Controladores avanzados, válvulas motorizadas, actuadores y sensores destinados a regular la carga térmica óptima y el confort ambiental.</p>
+            <p class="text-slate-400 text-sm leading-relaxed">Controladores avanzados, válvulas motorizadas, actuadores y sensores destinados a regular la carga térmica óptima.</p>
           </div>
           <div class="pt-6 font-mono text-[11px] text-slate-500 tracking-wider">// CONTROLADORES / VÁLVULAS / ACTUADORES</div>
         </div>
@@ -196,57 +178,47 @@ const navLinks = [
           <div class="space-y-3">
             <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">03 . SEGURIDAD INTEGRAL</div>
             <h3 class="text-xl font-bold text-white">CCTV & Detección de Incendios</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Integración de sistemas de videovigilancia distribuidos, control de accesos restringidos (lectores y tarjetas) y paneles centrales contra incendios.</p>
+            <p class="text-slate-400 text-sm leading-relaxed">Integración de sistemas de videovigilancia distribuidos, control de accesos restringidos y paneles centrales contra incendios.</p>
           </div>
           <div class="pt-6 font-mono text-[11px] text-slate-500 tracking-wider">// SOFTWARE DE VIDEO / DETECTORES / ACCESOS</div>
         </div>
       </div>
     </section>
 
-    <!-- 5. PROYECTOS Y ARQUITECTURA DE RED -->
+    <!-- 5. PROYECTOS Y ARQUITECTURA -->
     <section id="proyectos" class="py-20 px-6 max-w-7xl mx-auto space-y-12">
       <div class="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <div class="md:col-span-2 space-y-4">
           <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Tecnología de última generación</span>
           <h3 class="text-2xl font-bold text-white md:text-3xl">Eficiencia Estratégica para su Empresa</h3>
           <p class="text-slate-400 text-sm md:text-base leading-relaxed">
-            La automatización juega un papel fundamental no solo por motivos de eficiencia, confort y seguridad, sino también como parte estratégica en la imagen de la organización, certificando que su empresa se preocupa por crecer tecnológicamente bajo políticas sostenibles.
+            La automatización juega un papel fundamental no solo por motivos de eficiencia, confort y seguridad, sino también como parte estratégica en la imagen de la organización y sus políticas sostenibles.
           </p>
         </div>
         <div class="flex flex-col items-start md:items-end justify-center">
           <div class="font-mono text-xs text-slate-400 border border-slate-800 bg-slate-950 px-4 py-2 rounded-lg">
             Protocolos Soportados: <br/>
-            <span class="text-cyan-400 font-bold">BACnet, Modbus, MQTT, Matter, Zigbee 3.0</span>
+            <span class="text-cyan-400 font-bold">BACnet, Modbus, MQTT, Zigbee 3.0</span>
           </div>
         </div>
       </div>
 
-      <!-- Tarjeta para ver la Arquitectura de Subred Local -->
       <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">// Arquitectura Edge & Local Subnet</span>
             <h3 class="text-xl md:text-2xl font-bold text-white mt-1">Infraestructura de Procesamiento Local e IA</h3>
-            <p class="text-slate-400 text-sm mt-1">
-              Topología de red privada aislada sin dependencia de la nube para procesamiento por voz local, telemetría y domótica.
-            </p>
+            <p class="text-slate-400 text-sm mt-1">Topología de red privada aislada sin dependencia de la nube.</p>
           </div>
           <button 
             id="open-diagram-btn"
             class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500 transition text-sm font-semibold shrink-0"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-            </svg>
             Ver Diagrama de Red
           </button>
         </div>
 
-        <!-- Vista Previa de la imagen -->
-        <div 
-          id="diagram-trigger" 
-          class="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 cursor-pointer group shadow-2xl"
-        >
+        <div id="diagram-trigger" class="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 cursor-pointer group shadow-2xl">
           <Image 
             src={diagramaArquitectura} 
             alt="Arquitectura Zaikurai Private Local Subnet"
@@ -272,12 +244,8 @@ const navLinks = [
             <p class="text-slate-400 mt-2 text-sm">Comunícate con nuestro departamento de ingeniería para cotizaciones y soporte técnico.</p>
           </div>
           <div class="space-y-3 font-sans text-sm text-slate-300">
-            <p class="flex items-center gap-2">
-              <span class="text-cyan-400 font-mono">📍</span> Lima, Perú
-            </p>
-            <p class="flex items-center gap-2">
-              <span class="text-cyan-400 font-mono">✉️</span> info@zaikurai.com
-            </p>
+            <p class="flex items-center gap-2"><span class="text-cyan-400 font-mono">📍</span> Lima, Perú</p>
+            <p class="flex items-center gap-2"><span class="text-cyan-400 font-mono">✉️</span> info@zaikurai.com</p>
           </div>
         </div>
 
@@ -292,7 +260,7 @@ const navLinks = [
           </div>
           <div>
             <label for="mensaje" class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Mensaje Técnico</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="Describa los requerimientos de automatización..."></textarea>
+            <textarea id="mensaje" name="mensaje" rows="4" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="Describa los requerimientos..."></textarea>
           </div>
           <button type="submit" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-lg transition text-sm tracking-wide">
             Enviar Requerimiento
@@ -301,45 +269,23 @@ const navLinks = [
       </div>
     </section>
 
-    <!-- MODAL / LIGHTBOX PARA DIAGRAMA -->
-    <div 
-      id="diagram-modal" 
-      class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4 md:p-8"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Diagrama de Arquitectura Zaikurai"
-    >
+    <!-- MODAL -->
+    <div id="diagram-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4 md:p-8" role="dialog" aria-modal="true">
       <div class="relative max-w-6xl w-full max-h-[90vh] bg-slate-900 border border-slate-800 rounded-2xl flex flex-col overflow-hidden shadow-2xl">
         <div class="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-950">
-          <h4 class="text-sm font-mono text-cyan-400 font-semibold">
-            Diagrama de Arquitectura: Zaikurai Private Local Subnet
-          </h4>
-          <button 
-            id="close-modal-btn" 
-            class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition"
-            aria-label="Cerrar ventana"
-          >
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+          <h4 class="text-sm font-mono text-cyan-400 font-semibold">Diagrama de Arquitectura: Zaikurai Private Local Subnet</h4>
+          <button id="close-modal-btn" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition" aria-label="Cerrar">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
         </div>
         <div class="p-4 overflow-auto flex justify-center items-center bg-slate-950/50">
-          <Image 
-            src={diagramaArquitectura} 
-            alt="Arquitectura de Red Zaikurai completa"
-            format="webp"
-            quality={100}
-            class="w-full h-auto max-h-[75vh] object-contain rounded-lg"
-          />
+          <Image src={diagramaArquitectura} alt="Arquitectura completa" format="webp" quality={100} class="w-full h-auto max-h-[75vh] object-contain rounded-lg" />
         </div>
       </div>
     </div>
 
-    <!-- FOOTER -->
     <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-xs bg-slate-950 font-mono">
       <p>&copy; {new Date().getFullYear()} ZAIKURAI . Todos los derechos reservados.</p>
-      <p class="text-slate-600 mt-1 text-[10px]">Ingeniería para Soluciones Sostenibles en Control e Inmótica.</p>
     </footer>
 
   </main>
@@ -352,7 +298,6 @@ const navLinks = [
 </style>
 
 <script>
-  // A. MENÚ MÓVIL
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const iconBars = document.getElementById('menu-icon-bars');
@@ -365,71 +310,16 @@ const navLinks = [
       mobileMenu?.classList.add('flex');
       iconBars?.classList.replace('block', 'hidden');
       iconClose?.classList.replace('hidden', 'block');
-      menuBtn?.setAttribute('aria-expanded', 'true');
     } else {
       mobileMenu?.classList.add('hidden');
       mobileMenu?.classList.remove('flex');
       iconBars?.classList.replace('hidden', 'block');
       iconClose?.classList.replace('block', 'hidden');
-      menuBtn?.setAttribute('aria-expanded', 'false');
     }
   };
 
   menuBtn?.addEventListener('click', toggleMenu);
 
-  // B. SCROLLSPY Y AUTO-CIERRE EN MÓVIL
-  const desktopLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
-  const mobileLinks = document.querySelectorAll<HTMLAnchorElement>('.mobile-nav-link');
-  const sections = document.querySelectorAll<HTMLElement>('header[id], section[id]');
-
-  function updateActiveMenu() {
-    let currentSectionId = '';
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.offsetHeight;
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-        currentSectionId = section.getAttribute('id') || '';
-      }
-    });
-
-    const activeClasses = ['bg-[#1a1a1a]', 'text-white', 'border-cyan-500'];
-
-    desktopLinks.forEach((link) => {
-      const href = link.getAttribute('href')?.replace('#', '');
-      if (href === currentSectionId) {
-        link.classList.add(...activeClasses);
-        link.classList.remove('border-transparent');
-      } else {
-        link.classList.remove(...activeClasses);
-        link.classList.add('border-transparent');
-      }
-    });
-
-    mobileLinks.forEach((link) => {
-      const href = link.getAttribute('href')?.replace('#', '');
-      if (href === currentSectionId) {
-        link.classList.add(...activeClasses);
-        link.classList.remove('border-transparent', 'text-zinc-300');
-      } else {
-        link.classList.remove(...activeClasses);
-        link.classList.add('border-transparent', 'text-zinc-300');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveMenu, { passive: true });
-  window.addEventListener('load', updateActiveMenu);
-
-  mobileLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      if (!mobileMenu?.classList.contains('hidden')) {
-        toggleMenu();
-      }
-    });
-  });
-
-  // C. MODAL DIAGRAMA DE RED
   const openDiagramBtn = document.getElementById('open-diagram-btn');
   const diagramTrigger = document.getElementById('diagram-trigger');
   const diagramModal = document.getElementById('diagram-modal');
@@ -452,39 +342,6 @@ const navLinks = [
   closeModalBtn?.addEventListener('click', closeModal);
 
   diagramModal?.addEventListener('click', (e) => {
-    if (e.target === diagramModal) {
-      closeModal();
-    }
+    if (e.target === diagramModal) closeModal();
   });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !diagramModal?.classList.contains('hidden')) {
-      closeModal();
-    }
-  });
-
-  // D. FORMULARIO DE CONTACTO
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    console.log("Datos enviados:", Object.fromEntries(formData));
-    alert("Requerimiento recibido de forma correcta. Un ingeniero de proyectos se comunicará a la brevedad.");
-    form.reset();
-  });
-
-  // E. CARGAR IMAGEN ALEATORIA DE IOT PARA LOS BORDES DE NAVEGACIÓN
-  const iotImages = [
-    'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80', // Circuito / Hardware
-    'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=1920&q=80', // IoT / Smart Home
-    'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=1920&q=80', // Data Center / Servidores
-    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80', // Malla Digital / Red
-    'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1920&q=80'  // Computación / Cyber
-  ];
-
-  const heroBg = document.getElementById('hero-bg-iot');
-  if (heroBg) {
-    const randomImg = iotImages[Math.floor(Math.random() * iotImages.length)];
-    heroBg.style.backgroundImage = `url('${randomImg}')`;
-  }
 </script>
