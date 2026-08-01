@@ -3,10 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
 // Importación de assets
-// import bannerCiudad from '../assets/banner-ciudad.jpg';
 import diagramaArquitectura from '../assets/diagrama-arquitectura.jpg';
 
-const title = "ZAIKURAI01 - Domótica, Inmótica, Control e Integración IoT";
+const title = "ZAIKURAI - Domótica, Inmótica, Control e Integración IoT";
 const description = "Ingeniería de automatización, supervisión SCADA/BMS y soluciones sostenibles para edificios e industrias.";
 
 const navLinks = [
@@ -28,12 +27,12 @@ const navLinks = [
         <!-- Logo Corporativo -->
         <a href="#inicio" class="flex items-center gap-3 shrink-0 group">
           <div class="w-9 h-9 rounded bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-            ZL
+            ZK
           </div>
           <div class="flex flex-col">
-            <span class="text-xl font-bold tracking-wider text-white leading-none">ZAIKURAI01</span>
+            <span class="text-xl font-bold tracking-wider text-white leading-none">ZAIKURAI</span>
             <span class="text-[9px] text-cyan-400 font-mono font-normal tracking-tight mt-1">
-              SECURITY & CONTROL • ADVANCED AUTOMATION & AI01
+              SECURITY & CONTROL • ADVANCED AUTOMATION & AI
             </span>
           </div>
         </a>
@@ -82,8 +81,8 @@ const navLinks = [
     <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[500px] overflow-hidden bg-slate-900 border-b border-slate-800">
       <div class="absolute inset-0 w-full h-full">
         <Image 
-          src={bannerCiudad} 
-          alt="Vista panorámica de ciudad inteligente representando inmótica y control Zaikurai"
+          src={diagramaArquitectura} 
+          alt="Vista de infraestructura y arquitectura Zaikurai"
           format="webp"
           quality={85}
           loading="eager"
@@ -91,7 +90,7 @@ const navLinks = [
         />
       </div>
       
-      <div class="absolute inset-0 bg-black/50 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-black/60 pointer-events-none"></div>
 
       <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pt-32 pb-12 sm:pb-16 px-6 z-10">
         <div class="max-w-7xl mx-auto text-center">
