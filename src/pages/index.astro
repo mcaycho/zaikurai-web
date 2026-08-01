@@ -77,23 +77,18 @@ const navLinks = [
       </div>
     </nav> 
 
-   <!-- 2. HERO SECTION CON FONDO EXTENDIDO E IMAGEN CENTRAL INTEGRADA -->
+  <!-- 2. HERO SECTION CON FONDO ALEATORIO DE IOT Y TARJETA CENTRAL -->
     <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[550px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
       
-      <!-- 1. Imagen de fondo expandida con menor desenfoque y mayor presencia visual -->
-      <div class="absolute inset-0 w-full h-full overflow-hidden opacity-60 pointer-events-none">
-        <Image 
-          src={diagramaArquitectura} 
-          alt=""
-          format="webp"
-          quality={50}
-          class="w-full h-full object-cover blur-xl scale-110 brightness-75"
-        />
-      </div>
+      <!-- 1. Contenedor de la imagen lateral aleatoria de fondo -->
+      <div 
+        id="hero-bg-iot" 
+        class="absolute inset-0 w-full h-full bg-cover bg-center opacity-40 blur-sm scale-105 transition-all duration-1000"
+      ></div>
 
-      <!-- 2. Degradados laterales suaves para fundir los bordes con la pantalla -->
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/20 to-slate-950 pointer-events-none z-10"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60 pointer-events-none z-10"></div>
+      <!-- 2. Degradados laterales y superiores para fundir los bordes de manera profesional -->
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/50 to-slate-950 pointer-events-none z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/80 pointer-events-none z-10"></div>
 
       <!-- 3. Imagen Principal Central ZAIKURAI -->
       <div class="relative z-20 w-full h-full flex items-center justify-center p-4 md:p-8">
@@ -118,6 +113,7 @@ const navLinks = [
           </p>
         </div>
       </div>
+   
     </header>
 
     <!-- 3. QUIÉNES SOMOS -->
