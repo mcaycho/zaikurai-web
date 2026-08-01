@@ -30,9 +30,9 @@ const navLinks = [
             ZK
           </div>
           <div class="flex flex-col">
-            <span class="text-xl font-bold tracking-wider text-white leading-none">ZAIKURAI 02</span>
+            <span class="text-xl font-bold tracking-wider text-white leading-none">ZAIKURAI</span>
             <span class="text-[9px] text-cyan-400 font-mono font-normal tracking-tight mt-1">
-              SECURITY & CONTROL • ADVANCED AUTOMATION & AI 02
+              SECURITY & CONTROL • ADVANCED AUTOMATION & AI
             </span>
           </div>
         </a>
@@ -77,27 +77,28 @@ const navLinks = [
       </div>
     </nav> 
 
-    <!-- 2. HERO SECTION -->
-    <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[500px] overflow-hidden bg-slate-900 border-b border-slate-800">
-      <div class="absolute inset-0 w-full h-full">
+    <!-- 2. HERO SECTION CORREGIDO -->
+    <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[550px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
+      <div class="absolute inset-0 w-full h-full flex items-center justify-center">
         <Image 
           src={diagramaArquitectura} 
           alt="Vista de infraestructura y arquitectura Zaikurai"
           format="webp"
-          quality={85}
+          quality={90}
           loading="eager"
-          class="w-full h-full object-cover object-center block"
+          class="w-full h-full object-cover md:object-contain object-top md:object-center block"
         />
       </div>
       
-      <div class="absolute inset-0 bg-black/60 pointer-events-none"></div>
+      <!-- Overlay sutil para legibilidad -->
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/40 pointer-events-none"></div>
 
-      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pt-32 pb-12 sm:pb-16 px-6 z-10">
+      <div class="absolute inset-x-0 bottom-0 pt-32 pb-12 sm:pb-16 px-6 z-10">
         <div class="max-w-7xl mx-auto text-center">
-          <h1 class="text-white text-2xl sm:text-4xl md:text-6xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+          <h1 class="text-white text-2xl sm:text-4xl md:text-5xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
             Automatización de Edificios
           </h1>
-          <p class="text-cyan-400 font-mono text-[9px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] mt-3 opacity-95">
+          <p class="text-cyan-400 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] mt-3 opacity-95 drop-shadow">
             Zaikurai Security & Control • Advanced Home Automation & AI
           </p>
         </div>
