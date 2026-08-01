@@ -77,42 +77,43 @@ const navLinks = [
       </div>
     </nav> 
 
-   <!-- 2. HERO SECTION CON FONDO ALEATORIO DE IOT Y TARJETA CENTRAL -->
-    <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[550px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
+  <!-- 2. HERO SECTION CON FONDO ALEATORIO DE IOT Y TARJETA CENTRAL -->
+    <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[600px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
       
-      <!-- 1. Contenedor de la imagen lateral aleatoria inyectada por JS -->
+      <!-- 1. Fondo aleatorio de IoT en la capa más baja con opacidad y efecto difuminado -->
       <div 
         id="hero-bg-iot" 
-        class="absolute inset-0 w-full h-full bg-cover bg-center opacity-40 blur-sm scale-105 transition-all duration-1000"
+        class="absolute inset-0 w-full h-full bg-cover bg-center opacity-30 blur-[2px] scale-105 transition-all duration-1000 z-0"
       ></div>
 
-      <!-- 2. Degradados laterales y superiores para fundir los bordes -->
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/50 to-slate-950 pointer-events-none z-10"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/80 pointer-events-none z-10"></div>
+      <!-- 2. Capas de oscurecimiento (viñeta) para que el centro destaque y los bordes se fundan -->
+      <div class="absolute inset-0 bg-radial from-transparent via-slate-950/70 to-slate-950 pointer-events-none z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/80 pointer-events-none z-10"></div>
 
-      <!-- 3. Imagen Principal Central ZAIKURAI -->
-      <div class="relative z-20 w-full h-full flex items-center justify-center p-4 md:p-8">
+      <!-- 3. Contenedor Central: Imagen principal con tamaño controlado para revelar los laterales -->
+      <div class="relative z-20 w-full max-w-4xl h-[70%] flex items-center justify-center p-4">
         <Image 
           src={diagramaArquitectura} 
           alt="Vista de infraestructura y arquitectura Zaikurai"
           format="webp"
           quality={95}
           loading="eager"
-          class="max-w-full max-h-full object-contain drop-shadow-[0_0_40px_rgba(6,182,212,0.25)] rounded-xl"
+          class="w-auto max-w-full max-h-full object-contain drop-shadow-[0_0_50px_rgba(6,182,212,0.3)] rounded-xl border border-slate-800/60"
         />
       </div>
 
       <!-- 4. Texto inferior sobrepuesto -->
-      <div class="absolute inset-x-0 bottom-0 pb-8 sm:pb-12 px-6 z-30 pointer-events-none">
-        <div class="max-w-7xl mx-auto text-center">
-          <h1 class="text-white text-2xl sm:text-4xl md:text-5xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+      <div class="absolute inset-x-0 bottom-4 sm:bottom-6 px-6 z-30 pointer-events-none text-center">
+        <div class="max-w-7xl mx-auto">
+          <h1 class="text-white text-xl sm:text-3xl md:text-4xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
             Automatización de Edificios
           </h1>
-          <p class="text-cyan-400 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] mt-3 opacity-95 drop-shadow">
+          <p class="text-cyan-400 font-mono text-[9px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] mt-2 opacity-95 drop-shadow">
             Zaikurai Security & Control • Advanced Home Automation & AI
           </p>
         </div>
       </div>
+   
     </header>
 
     <!-- 3. QUIÉNES SOMOS -->
