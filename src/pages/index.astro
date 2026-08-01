@@ -1,7 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
+// Importación de assets principales y de fondo para el Hero
+import diagramaArquitectura from '../assets/diagrama-arquitectura.jpg';
+import iotBg1 from '../assets/images/iot-bg-1.jpg';
+import iotBg2 from '../assets/images/iot-bg-2.jpg';
+import iotBg3 from '../assets/images/iot-bg-3.jpg';
+
+// Arreglo de fondos disponibles localmente
+const iotImages = [iotBg1, iotBg2, iotBg3];
+// Selección aleatoria en tiempo de compilación/servidor
+const randomBg = iotImages[Math.floor(Math.random() * iotImages.length)];
+
+const title = "ZAIKURAI - Domótica, Inmótica, Control e Integración IoT";
+const description = "Ingeniería de automatización, supervisión SCADA/BMS y soluciones sostenibles para edificios e industrias.";
+// Resto de tus enlaces...
+---
 // Importación de assets
 import diagramaArquitectura from '../assets/diagrama-arquitectura.jpg';
 
@@ -77,20 +95,26 @@ const navLinks = [
       </div>
     </nav> 
 
-  <!-- 2. HERO SECTION CON FONDO ALEATORIO DE IOT Y TARJETA CENTRAL -->
+ <!-- 2. HERO SECTION CON FONDO ALEATORIO DE IOT Y TARJETA CENTRAL -->
     <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[600px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
       
-      <!-- 1. Fondo aleatorio de IoT en la capa más baja con opacidad y efecto difuminado -->
-      <div 
-        id="hero-bg-iot" 
-        class="absolute inset-0 w-full h-full bg-cover bg-center opacity-30 blur-[2px] scale-105 transition-all duration-1000 z-0"
-      ></div>
+      <!-- 1. Fondo optimizado con Astro Image en la capa más baja -->
+      <div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
+        <Image 
+          src={randomBg} 
+          alt="ZAIKURAI IoT Infrastructure Background"
+          format="webp"
+          quality={85}
+          loading="eager"
+          class="w-full h-full object-cover object-center opacity-25 scale-105 blur-[1px]"
+        />
+      </div>
 
-      <!-- 2. Capas de oscurecimiento (viñeta) para que el centro destaque y los bordes se fundan -->
+      <!-- 2. Capas de oscurecimiento (viñeta) -->
       <div class="absolute inset-0 bg-radial from-transparent via-slate-950/70 to-slate-950 pointer-events-none z-10"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/80 pointer-events-none z-10"></div>
 
-      <!-- 3. Contenedor Central: Imagen principal con tamaño controlado para revelar los laterales -->
+      <!-- 3. Contenedor Central -->
       <div class="relative z-20 w-full max-w-4xl h-[70%] flex items-center justify-center p-4">
         <Image 
           src={diagramaArquitectura} 
@@ -113,9 +137,8 @@ const navLinks = [
           </p>
         </div>
       </div>
-   
     </header>
-
+   
     <!-- 3. QUIÉNES SOMOS -->
     <section id="quienes-somos" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
