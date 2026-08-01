@@ -62,41 +62,54 @@ const navLinks = [
           </svg>
         </button>
 
-      </div>
-
-      <!-- Menú Desplegable Móvil -->
-      <div id="mobile-menu" class="hidden md:hidden bg-[#222222] border-b border-zinc-800 px-6 py-4 flex-col gap-2">
-        {navLinks.map((link) => (
-          <a 
-            href={link.href} 
-            class="mobile-nav-link text-zinc-300 hover:text-white hover:bg-[#1a1a1a] border-l-4 border-transparent px-4 py-3 rounded-r text-sm font-medium transition-all"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-    </nav> 
-
-    <!-- 2. HERO SECTION CON FONDOS LATERALES DINÁMICOS DE IOT -->
+      <!-- 2. HERO SECTION CON FONDO EXTENDIDO E IMAGEN CENTRAL INTEGRADA -->
     <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[550px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
       
-      <!-- Fondo Dinámico IoT para los bordes oscuros -->
+      <!-- 1. Fondo Dinámico Aleatorio de IoT -->
       <div 
         id="hero-bg-iot" 
-        class="absolute inset-0 w-full h-full bg-cover bg-center opacity-25 blur-sm transition-all duration-1000 scale-105"
+        class="absolute inset-0 w-full h-full bg-cover bg-center opacity-30 blur-md transition-all duration-1000 scale-105"
       ></div>
 
-      <!-- Superposición de degradado para fusionar con el tema oscuro -->
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/60 to-slate-950 pointer-events-none"></div>
+      <!-- 2. Capa de desenfoque de la propia imagen principal para rellenar los bordes -->
+      <div class="absolute inset-0 w-full h-full overflow-hidden opacity-40 mix-blend-screen pointer-events-none">
+        <Image 
+          src={diagramaArquitectura} 
+          alt=""
+          format="webp"
+          quality={30}
+          class="w-full h-full object-cover blur-2xl scale-125"
+        />
+      </div>
+
+      <!-- 3. Degradados oscuros para suavizar los lados -->
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-slate-950 pointer-events-none"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/80 pointer-events-none"></div>
 
-      <!-- Imagen Principal Central ZAIKURAI (Sin Recorte) -->
-      <div class="relative z-10 w-full h-full flex items-center justify-center p-2 md:p-6">
+      <!-- 4. Imagen Principal Central ZAIKURAI -->
+      <div class="relative z-10 w-full h-full flex items-center justify-center p-4 md:p-8">
         <Image 
           src={diagramaArquitectura} 
           alt="Vista de infraestructura y arquitectura Zaikurai"
           format="webp"
           quality={95}
+          loading="eager"
+          class="max-w-full max-h-full object-contain drop-shadow-[0_0_35px_rgba(6,182,212,0.15)] rounded-xl"
+        />
+      </div>
+
+      <!-- 5. Texto inferior sobrepuesto -->
+      <div class="absolute inset-x-0 bottom-0 pb-8 sm:pb-12 px-6 z-20 pointer-events-none">
+        <div class="max-w-7xl mx-auto text-center">
+          <h1 class="text-white text-2xl sm:text-4xl md:text-5xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+            Automatización de Edificios
+          </h1>
+          <p class="text-cyan-400 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] mt-3 opacity-95 drop-shadow">
+            Zaikurai Security & Control • Advanced Home Automation & AI
+          </p>
+        </div>
+      </div>
+    </header>
           loading="eager"
           class="max-w-full max-h-full object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)] rounded-lg"
         />
