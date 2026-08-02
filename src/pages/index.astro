@@ -1,8 +1,9 @@
 ---
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
-// Importación de diagramas y fondos
+// Importación de diagramas y fondos desde src/assets/
 import diagramaArquitectura from '../assets/diagrama-arquitectura.jpg';
 import iotBg1 from '../assets/images/iot-bg-1.jpg';
 import iotBg2 from '../assets/images/iot-bg-2.jpg';
@@ -12,11 +13,8 @@ import iotBg5 from '../assets/images/iot-bg-5.jpg';
 import iotBg6 from '../assets/images/iot-bg-6.jpg';
 import iotBg7 from '../assets/images/iot-bg-7.jpg';
 
-// Arreglo con todas las imágenes de fondo disponibles
+// Arreglo completo con las 7 imágenes para el slider
 const iotImages = [iotBg1, iotBg2, iotBg3, iotBg4, iotBg5, iotBg6, iotBg7];
-
-// Selección aleatoria al renderizar
-const randomBg = iotImages[Math.floor(Math.random() * iotImages.length)];
 
 const title = "ZAIKURAI - Domótica, Inmótica, Control e Integración IoT";
 const description = "Ingeniería de automatización, supervisión SCADA/BMS y soluciones sostenibles para edificios e industrias.";
@@ -30,399 +28,145 @@ const navLinks = [
 ];
 ---
 
-<Layout title={title} description={description}>
-  <main class="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden">
-
-    <!-- 1. BARRA DE NAVEGACIÓN -->
-    <nav class="bg-[#2a2a2a] border-b border-zinc-800 sticky top-0 z-50">
-      <div class="w-full max-w-[1920px] mx-auto flex items-center justify-between h-20 px-6 md:px-8">
-        
-        <!-- Logo Corporativo -->
-        <a href="#inicio" class="flex items-center gap-3 shrink-0 group">
-          <div class="w-9 h-9 rounded bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-            ZK
-          </div>
-          <div class="flex flex-col">
-            <span class="text-xl font-bold tracking-wider text-white leading-none">ZAIKURAI</span>
-            <span class="text-[9px] text-cyan-400 font-mono font-normal tracking-tight mt-1">
-              SECURITY & CONTROL • ADVANCED AUTOMATION & AI
-            </span>
-          </div>
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="bg-slate-950 text-white font-sans antialiased selection:bg-cyan-500 selection:text-white">
+    
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Logo ZAIKURAI -->
+        <a href="#inicio" class="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          ZAIKURAI
         </a>
 
-        <!-- Menú Escritorio -->
-        <div id="nav-desktop" class="hidden md:flex h-full items-center text-sm font-normal text-zinc-300 ml-auto">
+        <!-- Menú Desktop -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
           {navLinks.map((link) => (
-            <a 
-              href={link.href} 
-              class="nav-link hover:bg-[#1a1a1a] hover:text-white px-8 h-20 flex items-center border-b-2 border-transparent transition-all duration-200"
-            >
-              {link.label}
-            </a>
+            <a href={link.href} class="hover:text-cyan-400 transition-colors">{link.label}</a>
           ))}
-        </div>
+        </nav>
 
-        <!-- Botón Menú Hamburguesa -->
-        <button 
-          id="menu-btn" 
-          class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded" 
-          aria-label="Abrir Menú"
-          aria-expanded="false"
-        >
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="menu-icon-bars" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <!-- Botón Menú Móvil -->
+        <button id="menu-btn" aria-label="Abrir menú" class="md:hidden text-slate-300 hover:text-white focus:outline-none">
+          <svg id="menu-icon-bars" class="w-7 h-7 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="menu-icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
-
       </div>
 
-      <!-- Menú Desplegable Móvil -->
-      <div id="mobile-menu" class="hidden md:hidden bg-[#222222] border-b border-zinc-800 px-6 py-4 flex-col gap-2">
+      <!-- Menú Móvil Desplegable -->
+      <div id="mobile-menu" class="hidden flex-col md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-4 text-slate-300">
         {navLinks.map((link) => (
-          <a 
-            href={link.href} 
-            class="mobile-nav-link text-zinc-300 hover:text-white hover:bg-[#1a1a1a] border-l-4 border-transparent px-4 py-3 rounded-r text-sm font-medium transition-all"
-          >
-            {link.label}
-          </a>
+          <a href={link.href} class="hover:text-cyan-400 transition-colors">{link.label}</a>
         ))}
-      </div>
-    </nav> 
-
-  <!-- 2. HERO SECTION -->
-    <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[600px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
-      
-      <!-- Contenedor del Slider de Fondos -->
-      <div id="hero-bg-container" class="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        {iotImages.map((img, index) => (
-          <Image 
-            src={img} 
-            alt={`ZAIKURAI IoT Background ${index + 1}`}
-            format="webp"
-            quality={85}
-            loading={index === 0 ? "eager" : "lazy"}
-            class="hero-bg-slide absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-1000 ease-in-out"
-          />
-        ))}
-      </div>
-
-      <!-- Superposición de Gradientes Suavizados -->
-      <div class="absolute inset-0 bg-slate-950/40 pointer-events-none z-10"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/70 pointer-events-none z-10"></div>
-
-      <!-- Contenedor del Diagrama Central -->
-      <div class="relative z-20 w-full max-w-4xl h-[70%] flex items-center justify-center p-4">
-        <Image 
-          src={diagramaArquitectura} 
-          alt="Vista de infraestructura y arquitectura Zaikurai"
-          format="webp"
-          quality={95}
-          loading="eager"
-          class="w-auto max-w-full max-h-full object-contain drop-shadow-[0_0_30px_rgba(6,182,212,0.4)] rounded-xl border border-slate-800/80 bg-slate-950/30 backdrop-blur-xs"
-        />
-      </div>
-
-      <!-- Texto del Hero -->
-      <div class="absolute inset-x-0 bottom-4 sm:bottom-6 px-6 z-30 pointer-events-none text-center">
-        <div class="max-w-7xl mx-auto">
-          <h1 class="text-white text-xl sm:text-3xl md:text-4xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
-            Automatización de Edificios
-          </h1>
-          <p class="text-cyan-400 font-mono text-[9px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] mt-2 opacity-95 drop-shadow">
-            Zaikurai Security & Control • Advanced Home Automation & AI
-          </p>
-        </div>
       </div>
     </header>
-   
-    <!-- 3. QUIÉNES SOMOS -->
-    <section id="quienes-somos" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-7 space-y-4">
-          <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">// Trayectoria e Integración</span>
-          <h2 class="text-3xl font-bold text-white md:text-4xl">Soluciones Innovadoras en Automatización</h2>
-          <p class="text-slate-400 text-sm md:text-base leading-relaxed">
-            En <strong>ZAIKURAI</strong> proporcionamos soluciones integrales llave en mano orientadas al diseño, suministro y puesta en marcha de proyectos de control e inmótica. Nos enfocamos en el <strong>ahorro de energía</strong>, la reducción del impacto ambiental y la valorización de la infraestructura corporativa.
-          </p>
-        </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="pt-20">
+      
+      <!-- HERO SECTION -->
+      <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         
-        <div class="lg:col-span-5 grid grid-cols-2 gap-4 text-center">
-          <div class="p-6 bg-slate-900 border border-slate-800/80 rounded-xl flex flex-col justify-center">
-            <p class="text-4xl font-extrabold text-cyan-400">LEED</p>
-            <p class="text-xs text-slate-400 mt-2 font-mono">Compatibilidad con Estándares Verdes</p>
-          </div>
-          <div class="p-6 bg-slate-900 border border-slate-800/80 rounded-xl flex flex-col justify-center">
-            <p class="text-4xl font-extrabold text-blue-500">100%</p>
-            <p class="text-xs text-slate-400 mt-2 font-mono">Soporte Post-Venta Garantizado</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. SERVICIOS -->
-    <section id="servicios" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-3xl font-bold text-white md:text-4xl">Especialidades e Ingeniería de Control</h2>
-        <p class="text-slate-400 mt-2">Equipamiento, instrumentación y software de última generación para sistemas críticos.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between p-8 hover:border-slate-700 transition">
-          <div class="space-y-3">
-            <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">01 . SISTEMAS DE ENERGÍA</div>
-            <h3 class="text-xl font-bold text-white">Subestaciones y Tableros</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Suministro y armado de tableros de automatización con medidores de energía inteligentes y transformadores de corriente.</p>
-          </div>
-          <div class="pt-6 font-mono text-[11px] text-slate-500 tracking-wider">// TELEMETRÍA DE POTENCIA / PROTECCIONES</div>
+        <!-- Slider de Imágenes de Fondo (Renderizado Optimizado con <Image />) -->
+        <div class="absolute inset-0 z-0">
+          {iotImages.map((img, index) => (
+            <Image
+              src={img}
+              alt={`ZAIKURAI Smart Automation ${index + 1}`}
+              class="hero-bg-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          ))}
+          <!-- Capas de Degradado para Lectura Óptima -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40 z-10"></div>
+          <div class="absolute inset-0 bg-slate-950/30 z-10"></div>
         </div>
 
-        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-slate-700 transition">
-          <div class="space-y-3">
-            <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">02 . CLIMATIZACIÓN</div>
-            <h3 class="text-xl font-bold text-white">HVAC - Aire Acondicionado</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Controladores avanzados, válvulas motorizadas, actuadores y sensores destinados a regular la carga térmica óptima.</p>
-          </div>
-          <div class="pt-6 font-mono text-[11px] text-slate-500 tracking-wider">// CONTROLADORES / VÁLVULAS / ACTUADORES</div>
-        </div>
-
-        <div class="p-8 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-slate-700 transition">
-          <div class="space-y-3">
-            <div class="text-cyan-400 text-xs font-mono uppercase tracking-wider">03 . SEGURIDAD INTEGRAL</div>
-            <h3 class="text-xl font-bold text-white">CCTV & Detección de Incendios</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Integración de sistemas de videovigilancia distribuidos, control de accesos restringidos y paneles centrales contra incendios.</p>
-          </div>
-          <div class="pt-6 font-mono text-[11px] text-slate-500 tracking-wider">// SOFTWARE DE VIDEO / DETECTORES / ACCESOS</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. PROYECTOS Y ARQUITECTURA -->
-    <section id="proyectos" class="py-20 px-6 max-w-7xl mx-auto space-y-12">
-      <div class="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-        <div class="md:col-span-2 space-y-4">
-          <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Tecnología de última generación</span>
-          <h3 class="text-2xl font-bold text-white md:text-3xl">Eficiencia Estratégica para su Empresa</h3>
-          <p class="text-slate-400 text-sm md:text-base leading-relaxed">
-            La automatización juega un papel fundamental no solo por motivos de eficiencia, confort y seguridad, sino también como parte estratégica en la imagen de la organización y sus políticas sostenibles.
+        <!-- Contenido Hero -->
+        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
+          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 mb-6">
+            Ecosistema IoT &amp; Inteligencia Artificial
+          </span>
+          
+          <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+            Automatización Inteligente para <br class="hidden sm:inline" />
+            <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
+              Edificaciones y Control Industrial
+            </span>
+          </h1>
+          
+          <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
+            {description}
           </p>
-        </div>
-        <div class="flex flex-col items-start md:items-end justify-center">
-          <div class="font-mono text-xs text-slate-400 border border-slate-800 bg-slate-950 px-4 py-2 rounded-lg">
-            Protocolos Soportados: <br/>
-            <span class="text-cyan-400 font-bold">BACnet, Modbus, MQTT, Zigbee 3.0</span>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/25">
+              Solicitar Cotización
+            </a>
+            <button id="open-diagram-btn" type="button" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 transition-all flex items-center justify-center gap-2">
+              <span>Ver Arquitectura</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">// Arquitectura Edge & Local Subnet</span>
-            <h3 class="text-xl md:text-2xl font-bold text-white mt-1">Infraestructura de Procesamiento Local e IA</h3>
-            <p class="text-slate-400 text-sm mt-1">Topología de red privada aislada sin dependencia de la nube.</p>
+      <!-- SECCIÓN ARQUITECTURA -->
+      <section id="servicios" class="py-20 bg-slate-900/50 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl font-bold text-white mb-4">Arquitectura de Red y Control</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto mb-10">
+            Conectividad multiprotocolo de alta disponibilidad (Modbus/MQTT/RS485) para monitoreo centralizado en tiempo real.
+          </p>
+
+          <div id="diagram-trigger" class="relative group max-w-4xl mx-auto rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 cursor-pointer shadow-2xl p-4 sm:p-8 hover:border-cyan-500/50 transition-all">
+            <Image 
+              src={diagramaArquitectura} 
+              alt="Diagrama de Arquitectura ZAIKURAI"
+              class="w-full h-auto rounded-lg object-cover group-hover:scale-[1.01] transition-transform duration-300"
+            />
+            <div class="mt-4 text-sm text-slate-400">Haz clic aquí para ampliar la topología de red.</div>
           </div>
-          <button 
-            id="open-diagram-btn"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500 transition text-sm font-semibold shrink-0"
-          >
-            Ver Diagrama de Red
+        </div>
+      </section>
+
+    </main>
+
+    <!-- MODAL DIAGRAMA -->
+    <div id="diagram-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md">
+      <div class="relative bg-slate-900 border border-slate-800 rounded-2xl max-w-5xl w-full p-6 text-slate-100 shadow-2xl">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
+          <h3 class="text-xl font-bold text-white">Topología de Red & Control ZAIKURAI</h3>
+          <button id="close-modal-btn" type="button" aria-label="Cerrar modal" class="text-slate-400 hover:text-white p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
           </button>
         </div>
-
-        <div id="diagram-trigger" class="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 cursor-pointer group shadow-2xl">
+        <div class="flex items-center justify-center overflow-hidden rounded-xl border border-slate-800">
           <Image 
             src={diagramaArquitectura} 
-            alt="Arquitectura Zaikurai Private Local Subnet"
-            format="webp"
-            quality={90}
-            class="w-full h-auto max-h-[450px] object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+            alt="Diagrama Ampliado"
+            class="w-full h-auto object-contain max-h-[75vh]"
           />
-          <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-colors flex items-center justify-center">
-            <span class="px-4 py-2 bg-slate-900/90 border border-slate-700 text-white font-mono text-xs rounded-lg shadow-lg group-hover:scale-105 transition-transform">
-              🔍 Click para ampliar esquema técnico
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. CONTACTO -->
-    <section id="contacto" class="py-20 px-6 max-w-4xl mx-auto border-t border-slate-800">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div class="space-y-6">
-          <div>
-            <h2 class="text-3xl font-bold text-white">Contáctanos</h2>
-            <p class="text-slate-400 mt-2 text-sm">Comunícate con nuestro departamento de ingeniería para cotizaciones y soporte técnico.</p>
-          </div>
-          <div class="space-y-3 font-sans text-sm text-slate-300">
-            <p class="flex items-center gap-2"><span class="text-cyan-400 font-mono">📍</span> Lima, Perú</p>
-            <p class="flex items-center gap-2"><span class="text-cyan-400 font-mono">✉️</span> info@zaikurai.com</p>
-          </div>
-        </div>
-
-        <form id="contact-form" class="space-y-4 bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-xl">
-          <div>
-            <label for="empresa" class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Nombre / Empresa</label>
-            <input type="text" id="empresa" name="empresa" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="Ej. Corporación Constructora" />
-          </div>
-          <div>
-            <label for="email" class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Correo Electrónico</label>
-            <input type="email" id="email" name="email" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="ingenieria@empresa.com" />
-          </div>
-          <div>
-            <label for="mensaje" class="block text-xs font-medium text-slate-400 mb-1 uppercase tracking-wider">Mensaje Técnico</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required class="w-full px-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500" placeholder="Describa los requerimientos..."></textarea>
-          </div>
-          <button type="submit" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-lg transition text-sm tracking-wide">
-            Enviar Requerimiento
-          </button>
-        </form>
-      </div>
-    </section>
-
-    <!-- MODAL -->
-    <div id="diagram-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4 md:p-8" role="dialog" aria-modal="true">
-      <div class="relative max-w-6xl w-full max-h-[90vh] bg-slate-900 border border-slate-800 rounded-2xl flex flex-col overflow-hidden shadow-2xl">
-        <div class="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-950">
-          <h4 class="text-sm font-mono text-cyan-400 font-semibold">Diagrama de Arquitectura: Zaikurai Private Local Subnet</h4>
-          <button id="close-modal-btn" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition" aria-label="Cerrar">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-          </button>
-        </div>
-        <div class="p-4 overflow-auto flex justify-center items-center bg-slate-950/50">
-          <Image src={diagramaArquitectura} alt="Arquitectura completa" format="webp" quality={100} class="w-full h-auto max-h-[75vh] object-contain rounded-lg" />
         </div>
       </div>
     </div>
 
-    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-xs bg-slate-950 font-mono">
-      <p>&copy; {new Date().getFullYear()} ZAIKURAI . Todos los derechos reservados.</p>
-    </footer>
-
-  </main>
-</Layout>
-
-<style is:global>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
-
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const iconBars = document.getElementById('menu-icon-bars');
-  const iconClose = document.getElementById('menu-icon-close');
-
-  const toggleMenu = () => {
-    const isHidden = mobileMenu?.classList.contains('hidden');
-    if (isHidden) {
-      mobileMenu?.classList.remove('hidden');
-      mobileMenu?.classList.add('flex');
-      iconBars?.classList.replace('block', 'hidden');
-      iconClose?.classList.replace('hidden', 'block');
-    } else {
-      mobileMenu?.classList.add('hidden');
-      mobileMenu?.classList.remove('flex');
-      iconBars?.classList.replace('hidden', 'block');
-      iconClose?.classList.replace('block', 'hidden');
-    }
-  };
-
-  menuBtn?.addEventListener('click', toggleMenu);
-
-  const openDiagramBtn = document.getElementById('open-diagram-btn');
-  const diagramTrigger = document.getElementById('diagram-trigger');
-  const diagramModal = document.getElementById('diagram-modal');
-  const closeModalBtn = document.getElementById('close-modal-btn');
-
-  const openModal = () => {
-    diagramModal?.classList.remove('hidden');
-    diagramModal?.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    diagramModal?.classList.add('hidden');
-    diagramModal?.classList.remove('flex');
-    document.body.style.overflow = '';
-  };
-
-  openDiagramBtn?.addEventListener('click', openModal);
-  diagramTrigger?.addEventListener('click', openModal);
-  closeModalBtn?.addEventListener('click', closeModal);
-
-  diagramModal?.addEventListener('click', (e) => {
-    if (e.target === diagramModal) closeModal();
-  });
-
-<script is:inline>
-  // Al usar is:inline, Astro ignora el parsing de sintaxis JSX dentro del script
-  const slides = document.querySelectorAll('.hero-bg-slide');
-  
-  if (slides.length > 0) {
-    let currentIndex = Math.floor(Math.random() * slides.length);
-    slides[currentIndex].classList.remove('opacity-0');
-    slides[currentIndex].classList.add('opacity-65');
-
-    setInterval(() => {
-      slides[currentIndex].classList.remove('opacity-65');
-      slides[currentIndex].classList.add('opacity-0');
-
-      currentIndex = (currentIndex + 1) % slides.length;
-
-      slides[currentIndex].classList.remove('opacity-0');
-      slides[currentIndex].classList.add('opacity-65');
-    }, 6000);
-  }
-
-  // Menú Navegación Móvil
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const iconBars = document.getElementById('menu-icon-bars');
-  const iconClose = document.getElementById('menu-icon-close');
-
-  const toggleMenu = () => {
-    const isHidden = mobileMenu?.classList.contains('hidden');
-    if (isHidden) {
-      mobileMenu?.classList.remove('hidden');
-      mobileMenu?.classList.add('flex');
-      iconBars?.classList.replace('block', 'hidden');
-      iconClose?.classList.replace('hidden', 'block');
-    } else {
-      mobileMenu?.classList.add('hidden');
-      mobileMenu?.classList.remove('flex');
-      iconBars?.classList.replace('hidden', 'block');
-      iconClose?.classList.replace('block', 'hidden');
-    }
-  };
-
-  menuBtn?.addEventListener('click', toggleMenu);
-
-  // Modal para Ampliar Diagrama
-  const openDiagramBtn = document.getElementById('open-diagram-btn');
-  const diagramTrigger = document.getElementById('diagram-trigger');
-  const diagramModal = document.getElementById('diagram-modal');
-  const closeModalBtn = document.getElementById('close-modal-btn');
-
-  const openModal = () => {
-    diagramModal?.classList.remove('hidden');
-    diagramModal?.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    diagramModal?.classList.add('hidden');
-    diagramModal?.classList.remove('flex');
-    document.body.style.overflow = '';
-  };
-
-  openDiagramBtn?.addEventListener('click', openModal);
-  diagramTrigger?.addEventListener('click', openModal);
-  closeModalBtn?.addEventListener('click', closeModal);
-
-  diagramModal?.addEventListener('click', (e) => {
-    if (e.target === diagramModal) closeModal();
-  });
-</script>
+    <!-- Script de Interactividad -->
+    <script src="../scripts/client.js"></script>
+  </body>
+</html>
