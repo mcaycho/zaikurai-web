@@ -96,10 +96,10 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
     </header>
 
     <!-- MAIN -->
-    <main class="pt-20">
+    <main class="pt-20 scroll-pt-20">
       
-      <!-- HERO -->
-      <section id="inicio" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-12">
+      <!-- HERO (INICIO) -->
+      <section id="inicio" class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden py-12 scroll-mt-20">
         <div class="absolute inset-0 z-0 bg-slate-950">
           {iotImages.map((imgSrc, index) => (
             <img
@@ -127,8 +127,8 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
       </section>
 
       <!-- QUIÉNES SOMOS -->
-      <section id="quienes-somos" class="py-20 border-t border-slate-800/80 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="quienes-somos" class="py-20 border-t border-slate-800/80 bg-slate-950 scroll-mt-20 min-h-[calc(100vh-5rem)] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="text-left space-y-6">
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
@@ -162,8 +162,8 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
       </section>
 
       <!-- SERVICIOS -->
-      <section id="servicios" class="py-20 bg-slate-900/40 border-t border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="servicios" class="py-20 bg-slate-900/40 border-t border-slate-800/80 scroll-mt-20 min-h-[calc(100vh-5rem)] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Servicios &amp; Arquitectura de Red</h2>
             <p class="text-slate-400 text-base sm:text-lg">
@@ -212,8 +212,8 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
       </section>
 
       <!-- PROYECTOS -->
-      <section id="proyectos" class="py-20 border-t border-slate-800/80 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="proyectos" class="py-20 border-t border-slate-800/80 bg-slate-950 scroll-mt-20 min-h-[calc(100vh-5rem)] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Proyectos &amp; Despliegues</h2>
             <p class="text-slate-400 text-base sm:text-lg">Soluciones escalables desarrolladas para entornos residenciales complejos e infraestructura crítica de datos.</p>
@@ -236,8 +236,8 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
       </section>
 
       <!-- CONTACTO -->
-      <section id="contacto" class="py-20 border-t border-slate-800/80 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contacto" class="py-20 border-t border-slate-800/80 bg-slate-950 scroll-mt-20 min-h-[calc(100vh-5rem)] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div class="mb-12 border-b border-slate-800 pb-6">
             <h2 class="text-3xl font-extrabold text-white tracking-widest uppercase">Contáctenos</h2>
             <p class="text-xs text-slate-400 mt-1">Inicio / Contacto</p>
