@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
-// Importación de assets principales y de fondo para el Hero
+// Importación de diagramas y fondos
 import diagramaArquitectura from '../assets/diagrama-arquitectura.jpg';
 import iotBg1 from '../assets/images/iot-bg-1.jpg';
 import iotBg2 from '../assets/images/iot-bg-2.jpg';
@@ -10,13 +10,17 @@ import iotBg3 from '../assets/images/iot-bg-3.jpg';
 import iotBg4 from '../assets/images/iot-bg-4.jpg';
 import iotBg5 from '../assets/images/iot-bg-5.jpg';
 import iotBg6 from '../assets/images/iot-bg-6.jpg';
+import iotBg7 from '../assets/images/iot-bg-7.jpg';
 
-// Arreglo de fondos disponibles localmente
-const iotImages = [iotBg1, iotBg2, iotBg3];
+// Arreglo con todas las imágenes de fondo disponibles
+const iotImages = [iotBg1, iotBg2, iotBg3, iotBg4, iotBg5, iotBg6, iotBg7];
+
+// Selección aleatoria al renderizar
 const randomBg = iotImages[Math.floor(Math.random() * iotImages.length)];
 
 const title = "ZAIKURAI - Domótica, Inmótica, Control e Integración IoT";
 const description = "Ingeniería de automatización, supervisión SCADA/BMS y soluciones sostenibles para edificios e industrias.";
+---
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
