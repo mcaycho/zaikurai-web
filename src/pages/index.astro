@@ -546,3 +546,46 @@ const navLinks = [
     </script>
   </body>
 </html>
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const statusText = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  if (form && statusText && submitBtn) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'ENVIANDO...';
+      statusText.textContent = '';
+      statusText.className = 'text-xs font-semibold text-slate-400';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          statusText.textContent = '¡Mensaje enviado con éxito!';
+          statusText.className = 'text-xs font-semibold text-emerald-400';
+          form.reset();
+        } else {
+          statusText.textContent = data.message || 'Error al enviar. Revisa la Access Key.';
+          statusText.className = 'text-xs font-semibold text-rose-400';
+        }
+      } catch (error) {
+        statusText.textContent = 'Error de conexión. Intente nuevamente.';
+        statusText.className = 'text-xs font-semibold text-rose-400';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'ENVIAR CORREO';
+      }
+    });
+  }
+</script>
+
