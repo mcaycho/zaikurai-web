@@ -3,7 +3,7 @@
 import { Image } from 'astro:assets';
 import '../styles/global.css';
 
-// Importación del diagrama de arquitectura (usando fallback directo o asset import)
+// Importación de diagrama
 import diagramaArquitectura from '../assets/images/diagrama-arquitectura.jpg';
 
 // Importación de imágenes para el Hero Slider
@@ -48,7 +48,7 @@ const navLinks = [
   <body class="bg-slate-950 text-white font-sans antialiased selection:bg-cyan-500 selection:text-white min-h-screen">
     
     <!-- HEADER / NAVEGACIÓN -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+    <header class="fixed top-0 left-0 w-full z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         <!-- Logo ZAIKURAI -->
@@ -94,28 +94,27 @@ const navLinks = [
             <img
               src={imgSrc}
               alt={`ZAIKURAI Smart Automation ${index + 1}`}
-              class={`hero-bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-60' : 'opacity-0'}`}
+              class={`hero-bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-90' : 'opacity-0'}`}
             />
           ))}
-          <!-- Overlays para contraste de texto -->
-          <div class="absolute inset-0 bg-slate-950/60 z-10"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/80 z-10"></div>
+          <!-- Overlay Único de Gradiente para Máxima Visibilidad + Legibilidad -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70 z-10"></div>
         </div>
 
         <!-- Contenido Central Hero -->
         <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 mb-6">
+          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 mb-6 backdrop-blur-sm">
             ECOSISTEMA IOT &amp; INTELIGENCIA ARTIFICIAL
           </span>
           
-          <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+          <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight drop-shadow-md">
             Automatización Inteligente para <br class="hidden sm:inline" />
-            <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
+            <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-300 bg-clip-text text-transparent">
               Edificaciones y Control Industrial
             </span>
           </h1>
           
-          <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
+          <p class="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto mb-10 font-normal leading-relaxed drop-shadow">
             {description}
           </p>
           
@@ -123,7 +122,7 @@ const navLinks = [
             <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/25 text-center">
               Solicitar Cotización
             </a>
-            <button id="open-diagram-btn" type="button" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 transition-all flex items-center justify-center gap-2">
+            <button id="open-diagram-btn" type="button" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-white bg-slate-900/90 hover:bg-slate-800 border border-slate-700 transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
               <span>Ver Arquitectura</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -151,13 +150,19 @@ const navLinks = [
             Conectividad multiprotocolo de alta disponibilidad (Modbus, MQTT, RS485) para monitoreo centralizado.
           </p>
 
-          <div id="diagram-trigger" class="relative group max-w-4xl mx-auto rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 cursor-pointer shadow-2xl p-4 sm:p-6 hover:border-cyan-500/50 transition-all">
+          <!-- Tarjeta Contenedora Centrada -->
+          <div id="diagram-trigger" class="relative group max-w-4xl mx-auto rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/80 cursor-pointer shadow-2xl p-4 sm:p-8 hover:border-cyan-500/50 transition-all flex flex-col items-center justify-center">
             <Image 
               src={diagramaArquitectura} 
               alt="Diagrama de Arquitectura ZAIKURAI"
-              class="w-full h-auto rounded-lg object-contain max-h-[480px] mx-auto"
+              class="w-full h-auto rounded-lg object-contain max-h-[500px] mx-auto block"
             />
-            <div class="mt-4 text-sm text-cyan-400 font-medium">Haz clic aquí para ampliar la topología de red</div>
+            <div class="mt-4 text-sm text-cyan-400 font-semibold tracking-wide flex items-center gap-1.5">
+              <span>Haz clic para ampliar la topología</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+              </svg>
+            </div>
           </div>
         </div>
       </section>
@@ -177,7 +182,7 @@ const navLinks = [
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 class="text-3xl font-bold text-white mb-4">Contacto</h2>
           <p class="text-slate-400 mb-8">¿Tienes un proyecto en mente? Contáctanos para asesoría técnica especializada.</p>
-          <a href="mailto:contacto@zaikurai.com" class="inline-block px-8 py-4 rounded-xl font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-all">
+          <a href="mailto:contacto@zaikurai.com" class="inline-block px-8 py-4 rounded-xl font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/20">
             Enviar Mensaje
           </a>
         </div>
@@ -206,22 +211,22 @@ const navLinks = [
       </div>
     </div>
 
-    <!-- SCRIPT DE CLIENTE INLINE (Asegura ejecución en Astro) -->
+    <!-- SCRIPT DE CLIENTE INLINE -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // 1. Slider de Imágenes Hero
+        // 1. Slider de Imágenes Hero con opacidad incrementada
         const slides = document.querySelectorAll('.hero-bg-slide');
         if (slides.length > 0) {
           let currentIndex = 0;
           setInterval(() => {
-            slides[currentIndex].classList.remove('opacity-60');
+            slides[currentIndex].classList.remove('opacity-90');
             slides[currentIndex].classList.add('opacity-0');
 
             currentIndex = (currentIndex + 1) % slides.length;
 
             slides[currentIndex].classList.remove('opacity-0');
-            slides[currentIndex].classList.add('opacity-60');
-          }, 4000);
+            slides[currentIndex].classList.add('opacity-90');
+          }, 4500);
         }
 
         // 2. Menú Móvil
@@ -247,7 +252,6 @@ const navLinks = [
             }
           });
 
-          // Cerrar menú al hacer clic en una opción
           mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
               mobileMenu.classList.add('hidden');
