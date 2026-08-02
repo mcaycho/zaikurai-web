@@ -3,10 +3,17 @@
 import { Image } from 'astro:assets';
 import '../styles/global.css';
 
-// Importación del diagrama / imagen central
+// Importación de imágenes
 import diagramaArquitectura from '../assets/images/diagrama-arquitectura.jpg';
+import queSomosImg from '../assets/images/quesomos.jpg';
+import servicio01Img from '../assets/images/servicio01.jpg';
 
-// Importación de imágenes para el fondo
+import proyecto01Img from '../assets/images/proyecto01.jpg';
+import proyecto03Img from '../assets/images/proyecto03.jpg';
+import proyecto04Img from '../assets/images/proyecto04.jpg';
+import proyecto05Img from '../assets/images/proyecto05.jpg';
+
+// Importación de fondos aleatorios
 import iotBg1 from '../assets/images/iot-bg-1.jpg';
 import iotBg2 from '../assets/images/iot-bg-2.jpg';
 import iotBg3 from '../assets/images/iot-bg-3.jpg';
@@ -23,6 +30,13 @@ const iotImages = [
   iotBg5.src,
   iotBg6.src,
   iotBg7.src
+];
+
+const proyectos = [
+  { img: proyecto01Img, title: "Automatización Residencial & Edificaciones", desc: "Despliegues inteligentes con control centralizado y gestión energética." },
+  { img: proyecto03Img, title: "Supervisión Industrial SCADA / BMS", desc: "Monitoreo en tiempo real con protocolos Modbus, MQTT y RS485." },
+  { img: proyecto04Img, title: "Infraestructura & Control de Acceso", desc: "Sistemas de alta disponibilidad y gestión de seguridad avanzada." },
+  { img: proyecto05Img, title: "Operaciones & Mantenimiento AI", desc: "Plataformas de automatización inteligente y análisis de datos." },
 ];
 
 const title = "ZAIKURAI - Security & Control | Advanced Automation & AI";
@@ -47,7 +61,7 @@ const navLinks = [
   </head>
   <body class="bg-slate-950 text-white font-sans antialiased selection:bg-cyan-500 selection:text-white min-h-screen">
     
-    <!-- HEADER / NAVEGACIÓN LIMPIA Y TRANSPARENTE -->
+    <!-- HEADER / NAVEGACIÓN -->
     <header class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
@@ -66,7 +80,7 @@ const navLinks = [
           </div>
         </a>
 
-        <!-- Menú Desktop Limpio sin Cajas Sólidas -->
+        <!-- Menú Desktop -->
         <nav class="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
             <a 
@@ -103,7 +117,7 @@ const navLinks = [
       <!-- HERO SECTION -->
       <section id="inicio" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-12">
         
-        <!-- Fondo con Transición Suave y Brillo Ajustado (Súper Nitidez) -->
+        <!-- Fondo IoT -->
         <div class="absolute inset-0 z-0 bg-slate-950">
           {iotImages.map((imgSrc, index) => (
             <img
@@ -112,11 +126,10 @@ const navLinks = [
               class={`hero-bg-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out transform ${index === 0 ? 'opacity-95 scale-100' : 'opacity-0 scale-105'}`}
             />
           ))}
-          <!-- Degradado sutil solo en bordes superior/inferior para no oscurecer la foto -->
           <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-transparent to-slate-950/90 z-10 pointer-events-none"></div>
         </div>
 
-        <!-- Tarjeta Central Principal con Borde Cyan Glow -->
+        <!-- Tarjeta Central Principal -->
         <div class="relative z-20 max-w-2xl w-full mx-auto px-4 sm:px-6">
           <div 
             id="open-diagram-btn" 
@@ -124,7 +137,6 @@ const navLinks = [
           >
             <div class="bg-slate-950/90 rounded-[22px] overflow-hidden border border-slate-800/80 p-4 sm:p-5 text-center">
               
-              <!-- Contenedor Imagen Central -->
               <div class="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 flex items-center justify-center">
                 <Image 
                   src={diagramaArquitectura} 
@@ -133,7 +145,6 @@ const navLinks = [
                 />
               </div>
 
-              <!-- Texto Acción -->
               <div class="mt-4 flex items-center justify-center gap-2 text-cyan-400 font-bold text-xs sm:text-sm tracking-wide">
                 <span>Haz clic para ampliar la arquitectura en pantalla completa</span>
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,45 +159,149 @@ const navLinks = [
 
       <!-- SECCIÓN QUIÉNES SOMOS -->
       <section id="quienes-somos" class="py-20 border-t border-slate-800/80 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="text-3xl font-bold text-white mb-4">Quiénes Somos</h2>
-          <p class="text-slate-400 max-w-3xl mx-auto">
-            Desarrollamos e integramos soluciones avanzadas de software y hardware para domótica, inmótica y control industrial de alta fidelidad.
-          </p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="text-left space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                Ingeniería &amp; Control
+              </div>
+              
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                Quiénes Somos
+              </h2>
+
+              <p class="text-slate-300 text-lg leading-relaxed">
+                Desarrollamos e integramos soluciones avanzadas de software y hardware para domótica, inmótica y control industrial de alta fidelidad.
+              </p>
+
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Nuestra arquitectura abarca desde la automatización residencial inteligente hasta la supervisión de infraestructura crítica de datos, optimizando la conectividad multiprotocolo y la eficiencia operacional.
+              </p>
+
+              <div class="pt-2 flex flex-wrap gap-4">
+                <div class="flex items-center gap-2 text-slate-300 text-sm font-medium">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                  Supervisión SCADA / BMS
+                </div>
+                <div class="flex items-center gap-2 text-slate-300 text-sm font-medium">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                  Integración IoT &amp; AI
+                </div>
+              </div>
+            </div>
+
+            <div class="relative group">
+              <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+              <div class="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
+                <Image 
+                  src={queSomosImg} 
+                  alt="Acerca de ZAIKURAI" 
+                  class="w-full h-auto object-cover rounded-2xl transform group-hover:scale-[1.01] transition-transform duration-500"
+                />
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
       <!-- SECCIÓN SERVICIOS -->
       <section id="servicios" class="py-20 bg-slate-900/40 border-t border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="text-3xl font-bold text-white mb-4">Arquitectura de Red y Control</h2>
-          <p class="text-slate-400 max-w-2xl mx-auto mb-10">
-            Conectividad multiprotocolo de alta disponibilidad (Modbus, MQTT, RS485) para monitoreo centralizado.
-          </p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Servicios &amp; Arquitectura de Red</h2>
+            <p class="text-slate-400 text-base sm:text-lg">
+              Conectividad multiprotocolo de alta disponibilidad (Modbus, MQTT, RS485) e integración de hardware especializado para monitoreo centralizado.
+            </p>
+          </div>
 
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            
+            <div class="relative group order-2 lg:order-1">
+              <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+              <div class="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 p-2">
+                <Image 
+                  src={servicio01Img} 
+                  alt="Servicio de Automatización ZAIKURAI" 
+                  class="w-full h-auto object-cover rounded-xl"
+                />
+              </div>
+            </div>
+
+            <div class="space-y-6 order-1 lg:order-2">
+              <h3 class="text-2xl font-bold text-cyan-400">Integración de Control &amp; Sensores</h3>
+              <p class="text-slate-300 leading-relaxed">
+                Diseñamos e implementamos redes de control adaptadas a requerimientos residenciales, comerciales e industriales con integración IoT fluida y plataformas de gestión centralizada.
+              </p>
+              
+              <ul class="space-y-3 text-slate-400 text-sm">
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  Protocolos Industriales (Modbus RTU/TCP, MQTT, SNMP)
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  Ambientes de prueba e integración virtualizada
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  Componentes de alta confiabilidad y tableros inteligentes
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Diagrama interactivo secundario -->
           <div id="diagram-trigger" class="relative group max-w-4xl mx-auto rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/80 cursor-pointer shadow-2xl p-4 sm:p-8 hover:border-cyan-500/50 transition-all flex flex-col items-center justify-center">
             <Image 
               src={diagramaArquitectura} 
               alt="Diagrama de Arquitectura ZAIKURAI"
-              class="w-full h-auto rounded-lg object-contain max-h-[500px] mx-auto block"
+              class="w-full h-auto rounded-lg object-contain max-h-[450px] mx-auto block"
             />
             <div class="mt-4 text-sm text-cyan-400 font-semibold tracking-wide flex items-center gap-1.5">
-              <span>Haz clic para ampliar la topología</span>
+              <span>Haz clic para ver el esquema completo de topología</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
               </svg>
             </div>
           </div>
+
         </div>
       </section>
 
       <!-- SECCIÓN PROYECTOS -->
       <section id="proyectos" class="py-20 border-t border-slate-800/80 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="text-3xl font-bold text-white mb-4">Proyectos &amp; Despliegues</h2>
-          <p class="text-slate-400 max-w-2xl mx-auto">
-            Soluciones escalables desde departamentos residenciales hasta infraestructura crítica de centros de datos.
-          </p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Proyectos &amp; Despliegues</h2>
+            <p class="text-slate-400 text-base sm:text-lg">
+              Soluciones escalables desarrolladas para entornos residenciales complejos e infraestructura crítica de datos.
+            </p>
+          </div>
+
+          <!-- Galería Grid de Proyectos -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {proyectos.map((p) => (
+              <div class="group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 hover:border-cyan-500/50 transition-all duration-300">
+                <div class="aspect-video w-full overflow-hidden bg-slate-950">
+                  <Image 
+                    src={p.img} 
+                    alt={p.title} 
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">{p.title}</h3>
+                  <p class="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -203,7 +318,7 @@ const navLinks = [
 
     </main>
 
-    <!-- MODAL AMPLIO -->
+    <!-- MODAL DIAGRAMA -->
     <div id="diagram-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md">
       <div class="relative bg-slate-900 border border-slate-800 rounded-2xl max-w-5xl w-full p-6 text-slate-100 shadow-2xl">
         <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
@@ -227,29 +342,26 @@ const navLinks = [
     <!-- SCRIPT CLIENTE -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // 1. Rotación Aleatoria de Fondos con Transición Suave
+        // Rotación de fondos
         const slides = document.querySelectorAll('.hero-bg-slide');
         if (slides.length > 0) {
           let currentIndex = 0;
           setInterval(() => {
-            // Desvanecer imagen previa
             slides[currentIndex].classList.remove('opacity-95', 'scale-100');
             slides[currentIndex].classList.add('opacity-0', 'scale-105');
 
-            // Elegir nueva imagen aleatoria
             let nextIndex = Math.floor(Math.random() * slides.length);
             if (nextIndex === currentIndex) {
               nextIndex = (currentIndex + 1) % slides.length;
             }
             currentIndex = nextIndex;
 
-            // Mostrar nueva imagen
             slides[currentIndex].classList.remove('opacity-0', 'scale-105');
             slides[currentIndex].classList.add('opacity-95', 'scale-100');
           }, 5000);
         }
 
-        // 2. Menú Móvil
+        // Menú Móvil
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const iconBars = document.getElementById('menu-icon-bars');
@@ -282,7 +394,7 @@ const navLinks = [
           });
         }
 
-        // 3. Modal de Diagrama
+        // Modal Diagrama
         const openDiagramBtn = document.getElementById('open-diagram-btn');
         const diagramTrigger = document.getElementById('diagram-trigger');
         const diagramModal = document.getElementById('diagram-modal');
