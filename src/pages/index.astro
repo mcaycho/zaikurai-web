@@ -306,7 +306,7 @@ const navLinks = [
         </div>
       </section>
 
-     <!-- SECCIÓN CONTACTO -->
+    <!-- SECCIÓN CONTACTO -->
       <section id="contacto" class="py-20 border-t border-slate-800/80 bg-slate-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -323,7 +323,18 @@ const navLinks = [
                 Enviar un <span class="text-cyan-400">Mensaje</span>
               </h3>
 
-              <form class="space-y-4" action="#" method="POST">
+              <form id="contact-form" class="space-y-4" action="https://api.web3forms.com/submit" method="POST">
+                
+                <!-- Tu Access Key de Web3Forms -->
+                <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI" />
+                
+                <!-- Configuración adicional de Web3Forms -->
+                <input type="hidden" name="subject" value="Nuevo Mensaje de Contacto - ZAIKURAI Website" />
+                <input type="hidden" name="from_name" value="ZAIKURAI Website Form" />
+                
+                <!-- Campo Honeypot para evitar Spam (Invisible para usuarios) -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <input type="text" name="nombre" placeholder="Nombre(s)*" required class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 text-sm transition-colors" />
@@ -356,10 +367,11 @@ const navLinks = [
                   <textarea name="mensaje" rows="6" placeholder="Tu Mensaje*" required class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 text-sm transition-colors resize-none"></textarea>
                 </div>
 
-                <div>
-                  <button type="submit" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-3 rounded-lg transition-colors text-sm uppercase tracking-wider shadow-lg shadow-cyan-500/20">
+                <div class="flex items-center gap-4">
+                  <button id="submit-btn" type="submit" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-3 rounded-lg transition-colors text-sm uppercase tracking-wider shadow-lg shadow-cyan-500/20 disabled:opacity-50">
                     Enviar Correo
                   </button>
+                  <span id="form-status" class="text-xs font-semibold"></span>
                 </div>
               </form>
             </div>
@@ -421,7 +433,7 @@ const navLinks = [
           </div>
 
         </div>
-      </section>>
+      </section>
 
     </main>
 
