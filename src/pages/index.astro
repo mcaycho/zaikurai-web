@@ -3,8 +3,8 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
-// Importación de diagramas y fondos desde src/assets/
-import diagramaArquitectura from '../assets/diagrama-arquitectura.jpg';
+// Importación de diagramas y fondos desde src/assets/images/
+import diagramaArquitectura from '../assets/images/diagrama-arquitectura.jpg';
 import iotBg1 from '../assets/images/iot-bg-1.jpg';
 import iotBg2 from '../assets/images/iot-bg-2.jpg';
 import iotBg3 from '../assets/images/iot-bg-3.jpg';
@@ -13,8 +13,8 @@ import iotBg5 from '../assets/images/iot-bg-5.jpg';
 import iotBg6 from '../assets/images/iot-bg-6.jpg';
 import iotBg7 from '../assets/images/iot-bg-7.jpg';
 
-// Arreglo completo con las 7 imágenes para el slider
-const iotImages = [iotBg1, iotBg2, iotBg3, iotBg4, iotBg5, iotBg6, iotBg7];
+// Arreglo con las rutas procesadas (.src) para evitar conflictos de layout
+const iotImages = [iotBg1.src, iotBg2.src, iotBg3.src, iotBg4.src, iotBg5.src, iotBg6.src, iotBg7.src];
 
 const title = "ZAIKURAI - Domótica, Inmótica, Control e Integración IoT";
 const description = "Ingeniería de automatización, supervisión SCADA/BMS y soluciones sostenibles para edificios e industrias.";
@@ -36,10 +36,10 @@ const navLinks = [
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
-  <body class="bg-slate-950 text-white font-sans antialiased selection:bg-cyan-500 selection:text-white">
+  <body class="bg-slate-950 text-white font-sans antialiased selection:bg-cyan-500 selection:text-white min-h-screen">
     
     <!-- HEADER / NAVEGACIÓN -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+    <header class="fixed top-0 left-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <!-- Logo ZAIKURAI -->
         <a href="#inicio" class="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
@@ -78,19 +78,18 @@ const navLinks = [
       <!-- HERO SECTION -->
       <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         
-        <!-- Slider de Imágenes de Fondo (Renderizado Optimizado con <Image />) -->
+        <!-- Slider de Imágenes de Fondo (Etiqueta img nativa con .src para evitar distorsiones) -->
         <div class="absolute inset-0 z-0">
-          {iotImages.map((img, index) => (
-            <Image
-              src={img}
+          {iotImages.map((imgSrc, index) => (
+            <img
+              src={imgSrc}
               alt={`ZAIKURAI Smart Automation ${index + 1}`}
               class="hero-bg-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
-              loading={index === 0 ? "eager" : "lazy"}
             />
           ))}
-          <!-- Capas de Degradado para Lectura Óptima -->
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40 z-10"></div>
-          <div class="absolute inset-0 bg-slate-950/30 z-10"></div>
+          <!-- Overlays oscuros para mejorar contraste del texto -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/50 z-10"></div>
+          <div class="absolute inset-0 bg-slate-950/40 z-10"></div>
         </div>
 
         <!-- Contenido Hero -->
@@ -136,7 +135,7 @@ const navLinks = [
             <Image 
               src={diagramaArquitectura} 
               alt="Diagrama de Arquitectura ZAIKURAI"
-              class="w-full h-auto rounded-lg object-cover group-hover:scale-[1.01] transition-transform duration-300"
+              class="w-full h-auto rounded-lg object-contain max-h-[500px] mx-auto"
             />
             <div class="mt-4 text-sm text-slate-400">Haz clic aquí para ampliar la topología de red.</div>
           </div>
@@ -156,17 +155,19 @@ const navLinks = [
             </svg>
           </button>
         </div>
-        <div class="flex items-center justify-center overflow-hidden rounded-xl border border-slate-800">
+        <div class="flex items-center justify-center overflow-hidden rounded-xl border border-slate-800 p-2 bg-slate-950">
           <Image 
             src={diagramaArquitectura} 
-            alt="Diagrama Ampliado"
+            alt="Diagrama Ampliado ZAIKURAI"
             class="w-full h-auto object-contain max-h-[75vh]"
           />
         </div>
       </div>
     </div>
 
-    <!-- Script de Interactividad -->
+    <!-- Script de Interactividad Cliente -->
     <script src="../scripts/client.js"></script>
   </body>
 </html>
+      
+    
