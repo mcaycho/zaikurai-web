@@ -1,29 +1,30 @@
 // src/scripts/client.js
 
-// Slider Automático para las 7 imágenes
+// 1. Slider Automático para las diapositivas
 const slides = document.querySelectorAll('.hero-bg-slide');
 
 if (slides.length > 0) {
   let currentIndex = 0;
-  // Muestra la primera imagen inmediatamente
+  
+  // Activar primera diapositiva inmediatamente
   slides[currentIndex].classList.remove('opacity-0');
   slides[currentIndex].classList.add('opacity-60');
 
   setInterval(() => {
-    // Oculta la imagen actual
+    // Ocultar actual
     slides[currentIndex].classList.remove('opacity-60');
     slides[currentIndex].classList.add('opacity-0');
 
-    // Siguiente índice (rotación circular 0 a 6)
+    // Avanzar índice
     currentIndex = (currentIndex + 1) % slides.length;
 
-    // Muestra la nueva imagen
+    // Mostrar siguiente
     slides[currentIndex].classList.remove('opacity-0');
     slides[currentIndex].classList.add('opacity-60');
   }, 5000);
 }
 
-// Control Menú Móvil
+// 2. Control del Menú Móvil
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const iconBars = document.getElementById('menu-icon-bars');
@@ -46,7 +47,7 @@ if (menuBtn && mobileMenu) {
   });
 }
 
-// Modal Diagrama de Arquitectura
+// 3. Modal de Arquitectura
 const openDiagramBtn = document.getElementById('open-diagram-btn');
 const diagramTrigger = document.getElementById('diagram-trigger');
 const diagramModal = document.getElementById('diagram-modal');
