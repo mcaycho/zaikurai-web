@@ -90,23 +90,26 @@ const navLinks = [
       </div>
     </nav> 
 
-    <!-- 2. HERO SECTION -->
+   <!-- 2. HERO SECTION -->
     <header id="inicio" class="relative w-full h-[calc(100vh-80px)] min-h-[600px] overflow-hidden bg-slate-950 border-b border-slate-800 flex items-center justify-center">
       
+      <!-- Imagen de Fondo Aleatoria -->
       <div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <Image 
           src={randomBg} 
           alt="ZAIKURAI IoT Infrastructure Background"
           format="webp"
-          quality={85}
+          quality={90}
           loading="eager"
-          class="w-full h-full object-cover object-center opacity-25 scale-105 blur-[1px]"
+          class="w-full h-full object-cover object-center opacity-65 scale-100 transition-opacity duration-500"
         />
       </div>
 
-      <div class="absolute inset-0 bg-radial from-transparent via-slate-950/70 to-slate-950 pointer-events-none z-10"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/80 pointer-events-none z-10"></div>
+      <!-- Superposición de Gradientes Suavizados -->
+      <div class="absolute inset-0 bg-slate-950/40 pointer-events-none z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/70 pointer-events-none z-10"></div>
 
+      <!-- Contenedor del Diagrama Central -->
       <div class="relative z-20 w-full max-w-4xl h-[70%] flex items-center justify-center p-4">
         <Image 
           src={diagramaArquitectura} 
@@ -114,10 +117,11 @@ const navLinks = [
           format="webp"
           quality={95}
           loading="eager"
-          class="w-auto max-w-full max-h-full object-contain drop-shadow-[0_0_50px_rgba(6,182,212,0.3)] rounded-xl border border-slate-800/60"
+          class="w-auto max-w-full max-h-full object-contain drop-shadow-[0_0_30px_rgba(6,182,212,0.4)] rounded-xl border border-slate-800/80 bg-slate-950/30 backdrop-blur-xs"
         />
       </div>
 
+      <!-- Texto del Hero -->
       <div class="absolute inset-x-0 bottom-4 sm:bottom-6 px-6 z-30 pointer-events-none text-center">
         <div class="max-w-7xl mx-auto">
           <h1 class="text-white text-xl sm:text-3xl md:text-4xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
