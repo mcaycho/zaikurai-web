@@ -358,8 +358,8 @@ const navLinks = [
   });
 
 <script>
-  // Lógica del Slider Automático para el Hero (Sintaxis compatible con Astro)
-  const slides = document.querySelectorAll('.hero-bg-slide') as NodeListOf<HTMLImageElement>;
+  // Slider Automático de Fondos (JS Vanilla sin genéricos)
+  const slides = document.querySelectorAll('.hero-bg-slide');
   
   if (slides.length > 0) {
     // 1. Iniciar con una imagen aleatoria
@@ -373,7 +373,7 @@ const navLinks = [
       slides[currentIndex].classList.remove('opacity-65');
       slides[currentIndex].classList.add('opacity-0');
 
-      // Pasar a la siguiente
+      // Calcular siguiente índice
       currentIndex = (currentIndex + 1) % slides.length;
 
       // Mostrar nueva imagen
@@ -382,7 +382,7 @@ const navLinks = [
     }, 6000);
   }
 
-  // Menú móvil
+  // Menú Navegación Móvil
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const iconBars = document.getElementById('menu-icon-bars');
@@ -405,7 +405,7 @@ const navLinks = [
 
   menuBtn?.addEventListener('click', toggleMenu);
 
-  // Modal
+  // Modal para Ampliar Diagrama
   const openDiagramBtn = document.getElementById('open-diagram-btn');
   const diagramTrigger = document.getElementById('diagram-trigger');
   const diagramModal = document.getElementById('diagram-modal');
