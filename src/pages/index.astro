@@ -14,7 +14,7 @@ import proyect03Img from '../assets/images/proyect03.jpg';
 import proyect04Img from '../assets/images/proyect04.jpg';
 import proyect05Img from '../assets/images/proyect05.jpg';
 
-// Importación de fondos aleatorios
+// Importación de fondos aleatorios (Hero)
 import iotBg1 from '../assets/images/iot-bg-1.jpg';
 import iotBg2 from '../assets/images/iot-bg-2.jpg';
 import iotBg3 from '../assets/images/iot-bg-3.jpg';
@@ -211,25 +211,51 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
         </div>
       </section>
 
-      <!-- PROYECTOS -->
+      <!-- PROYECTOS (ESTRATEGIA HÍBRIDA UNIFICADA) -->
       <section id="proyectos" class="py-20 border-t border-slate-800/80 bg-slate-950 scroll-mt-20 min-h-[calc(100vh-5rem)] flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Proyectos &amp; Despliegues</h2>
-            <p class="text-slate-400 text-base sm:text-lg">Soluciones escalables desarrolladas para entornos residenciales complejos e infraestructura crítica de datos.</p>
+          <!-- Cabecera con Botones Desktop -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div class="max-w-2xl">
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Proyectos &amp; Despliegues</h2>
+              <p class="text-slate-400 text-base sm:text-lg">Soluciones escalables desarrolladas para entornos residenciales complejos e infraestructura crítica de datos.</p>
+            </div>
+            
+            <!-- Botones de Control para Escritorio -->
+            <div class="flex items-center gap-3 mt-6 md:mt-0">
+              <button id="prev-project" type="button" aria-label="Proyecto anterior" class="w-11 h-11 rounded-full border border-slate-800 bg-slate-900 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 flex items-center justify-center transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+              </button>
+              <button id="next-project" type="button" aria-label="Proyecto siguiente" class="w-11 h-11 rounded-full border border-slate-800 bg-slate-900 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 flex items-center justify-center transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </button>
+            </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Slider Container (Soporta Touch Swipe + Mouse Drag + Flechas) -->
+          <div id="projects-slider" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none scroll-smooth pb-6 cursor-grab active:cursor-grabbing select-none">
             {proyectos.map((p) => (
-              <div class="group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 hover:border-cyan-500/50 transition-all duration-300">
+              <div class="snap-start shrink-0 w-[85vw] sm:w-[420px] lg:w-[480px] group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 hover:border-cyan-500/50 transition-all duration-300">
                 <div class="aspect-video w-full overflow-hidden bg-slate-950">
-                  <Image src={p.img} alt={p.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Image src={p.img} alt={p.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none" />
                 </div>
                 <div class="p-6">
                   <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">{p.title}</h3>
                   <p class="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
                 </div>
               </div>
+            ))}
+          </div>
+
+          <!-- Puntos Indicadores Sincronizados -->
+          <div id="projects-dots" class="flex justify-center items-center gap-2 mt-4">
+            {proyectos.map((_, index) => (
+              <button 
+                type="button"
+                aria-label={`Ir al proyecto ${index + 1}`}
+                class={`dot-btn w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === 0 ? 'bg-cyan-400 w-8' : 'bg-slate-700 hover:bg-slate-500'}`}
+                data-index={index}
+              ></button>
             ))}
           </div>
         </div>
@@ -284,7 +310,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
               </form>
             </div>
 
-            <!-- INFORMACIÓN -->
+            <!-- INFORMACIÓN DE CONTACTO -->
             <div class="space-y-8 bg-slate-900/40 p-6 rounded-2xl border border-slate-800/80">
               <div>
                 <h3 class="text-lg font-bold text-white uppercase tracking-wider mb-2">Usted es <span class="text-cyan-400">Importante</span></h3>
@@ -340,10 +366,10 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
       </div>
     </div>
 
-    <!-- SCRIPT ÚNICO CLIENTE -->
+    <!-- SCRIPT CLIENTE (EJECUCIÓN NATIVA ASTRO) -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // Rotación de fondos Hero
+        // 1. Rotación de Fondos Hero
         const slides = document.querySelectorAll('.hero-bg-slide');
         if (slides.length > 0) {
           let currentIndex = 0;
@@ -362,7 +388,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
           }, 5000);
         }
 
-        // Menú Móvil
+        // 2. Menú Móvil
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const iconBars = document.getElementById('menu-icon-bars');
@@ -384,7 +410,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
           mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
         }
 
-        // Modal Diagrama
+        // 3. Modal Ampliación Diagrama
         const openDiagramBtn = document.getElementById('open-diagram-btn');
         const diagramTrigger = document.getElementById('diagram-trigger');
         const diagramModal = document.getElementById('diagram-modal');
@@ -407,7 +433,90 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "67314ebd-b5
           });
         }
 
-        // Envío de Formulario Web3Forms
+        // 4. CARRUSEL HÍBRIDO PROYECTOS
+        const slider = document.getElementById('projects-slider');
+        const prevBtn = document.getElementById('prev-project');
+        const nextBtn = document.getElementById('next-project');
+        const dots = document.querySelectorAll('.dot-btn');
+
+        if (slider) {
+          // A) Navegación con Botones Flechas (Desktop)
+          if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+              const cardWidth = (slider.children[0] as HTMLElement)?.offsetWidth || 400;
+              slider.scrollBy({ left: -(cardWidth + 24), behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+              const cardWidth = (slider.children[0] as HTMLElement)?.offsetWidth || 400;
+              slider.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
+            });
+          }
+
+          // B) Arrastre con Mouse en Escritorio (Mouse Drag)
+          let isDown = false;
+          let startX = 0;
+          let scrollLeft = 0;
+
+          slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active:cursor-grabbing');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+          });
+
+          slider.addEventListener('mouseleave', () => { isDown = false; });
+          slider.addEventListener('mouseup', () => { isDown = false; });
+
+          slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            slider.scrollLeft = scrollLeft - walk;
+          });
+
+          // C) Sincronización Automática de Puntos Indicadores (Dots)
+          const updateDots = () => {
+            const children = Array.from(slider.children) as HTMLElement[];
+            if (children.length === 0) return;
+
+            const scrollPos = slider.scrollLeft + slider.clientWidth / 2;
+            let activeIdx = 0;
+
+            children.forEach((child, idx) => {
+              if (scrollPos >= child.offsetLeft && scrollPos < child.offsetLeft + child.offsetWidth) {
+                activeIdx = idx;
+              }
+            });
+
+            dots.forEach((dot, idx) => {
+              if (idx === activeIdx) {
+                dot.classList.remove('bg-slate-700', 'w-2.5');
+                dot.classList.add('bg-cyan-400', 'w-8');
+              } else {
+                dot.classList.remove('bg-cyan-400', 'w-8');
+                dot.classList.add('bg-slate-700', 'w-2.5');
+              }
+            });
+          };
+
+          slider.addEventListener('scroll', updateDots);
+
+          // D) Navegación por Clic Directo en Puntos
+          dots.forEach((dot) => {
+            dot.addEventListener('click', (e) => {
+              const target = e.currentTarget as HTMLElement;
+              const index = parseInt(target.getAttribute('data-index') || '0', 10);
+              const children = Array.from(slider.children) as HTMLElement[];
+              if (children[index]) {
+                children[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+              }
+            });
+          });
+        }
+
+        // 5. Envío de Formulario Web3Forms
         const form = document.getElementById('contact-form') as HTMLFormElement | null;
         const statusText = document.getElementById('form-status');
         const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
