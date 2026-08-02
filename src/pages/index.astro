@@ -3,8 +3,13 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
-// Importación de diagramas y fondos desde src/assets/images/
+// Carga de estilos globales para Tailwind CSS v4
+import '../styles/global.css';
+
+// Importación del diagrama de arquitectura desde src/assets/images/
 import diagramaArquitectura from '../assets/images/diagrama-arquitectura.jpg';
+
+// Importación de las 7 imágenes para el Hero Slider
 import iotBg1 from '../assets/images/iot-bg-1.jpg';
 import iotBg2 from '../assets/images/iot-bg-2.jpg';
 import iotBg3 from '../assets/images/iot-bg-3.jpg';
@@ -13,8 +18,16 @@ import iotBg5 from '../assets/images/iot-bg-5.jpg';
 import iotBg6 from '../assets/images/iot-bg-6.jpg';
 import iotBg7 from '../assets/images/iot-bg-7.jpg';
 
-// Arreglo con las rutas procesadas (.src) para evitar conflictos de layout
-const iotImages = [iotBg1.src, iotBg2.src, iotBg3.src, iotBg4.src, iotBg5.src, iotBg6.src, iotBg7.src];
+// Arreglo de rutas estáticas procesadas (.src) para evitar wrappers adicionales en HTML
+const iotImages = [
+  iotBg1.src,
+  iotBg2.src,
+  iotBg3.src,
+  iotBg4.src,
+  iotBg5.src,
+  iotBg6.src,
+  iotBg7.src
+];
 
 const title = "ZAIKURAI - Domótica, Inmótica, Control e Integración IoT";
 const description = "Ingeniería de automatización, supervisión SCADA/BMS y soluciones sostenibles para edificios e industrias.";
@@ -78,7 +91,7 @@ const navLinks = [
       <!-- HERO SECTION -->
       <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         
-        <!-- Slider de Imágenes de Fondo (Etiqueta img nativa con .src para evitar distorsiones) -->
+        <!-- Slider de Imágenes de Fondo -->
         <div class="absolute inset-0 z-0">
           {iotImages.map((imgSrc, index) => (
             <img
@@ -87,12 +100,12 @@ const navLinks = [
               class="hero-bg-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
             />
           ))}
-          <!-- Overlays oscuros para mejorar contraste del texto -->
+          <!-- Overlays oscuros para legibilidad -->
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/50 z-10"></div>
           <div class="absolute inset-0 bg-slate-950/40 z-10"></div>
         </div>
 
-        <!-- Contenido Hero -->
+        <!-- Contenido Central -->
         <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
           <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 mb-6">
             Ecosistema IoT &amp; Inteligencia Artificial
@@ -165,9 +178,7 @@ const navLinks = [
       </div>
     </div>
 
-    <!-- Script de Interactividad Cliente -->
+    <!-- Script desacoplado del cliente -->
     <script src="../scripts/client.js"></script>
   </body>
 </html>
-      
-    
