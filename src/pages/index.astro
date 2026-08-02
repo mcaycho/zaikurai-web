@@ -3,10 +3,10 @@
 import { Image } from 'astro:assets';
 import '../styles/global.css';
 
-// Importación del diagrama de arquitectura central
+// Importación del diagrama / imagen central
 import diagramaArquitectura from '../assets/images/diagrama-arquitectura.jpg';
 
-// Importación de imágenes para el carrusel aleatorio de fondo
+// Importación de imágenes para el fondo
 import iotBg1 from '../assets/images/iot-bg-1.jpg';
 import iotBg2 from '../assets/images/iot-bg-2.jpg';
 import iotBg3 from '../assets/images/iot-bg-3.jpg';
@@ -47,13 +47,13 @@ const navLinks = [
   </head>
   <body class="bg-slate-950 text-white font-sans antialiased selection:bg-cyan-500 selection:text-white min-h-screen">
     
-    <!-- HEADER / ENCABEZADO -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/60">
+    <!-- HEADER / NAVEGACIÓN LIMPIA Y TRANSPARENTE -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        <!-- Isotipo ZK + Branding ZAIKURAI -->
+        <!-- Branding ZAIKURAI -->
         <a href="#inicio" class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-lg shadow-md shadow-cyan-500/20">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-black text-slate-950 text-lg shadow-md shadow-cyan-500/20">
             ZK
           </div>
           <div class="flex flex-col">
@@ -66,10 +66,15 @@ const navLinks = [
           </div>
         </a>
 
-        <!-- Menú de Navegación Desktop -->
-        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+        <!-- Menú Desktop Limpio sin Cajas Sólidas -->
+        <nav class="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
-            <a href={link.href} class="hover:text-cyan-400 transition-colors py-2">{link.label}</a>
+            <a 
+              href={link.href} 
+              class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors px-3 py-2 rounded-md hover:bg-slate-900/50"
+            >
+              {link.label}
+            </a>
           ))}
         </nav>
 
@@ -84,10 +89,10 @@ const navLinks = [
         </button>
       </div>
 
-      <!-- Menú Móvil -->
-      <div id="mobile-menu" class="hidden flex-col md:hidden bg-slate-950 border-b border-slate-800 px-6 py-4 space-y-3 text-slate-300">
+      <!-- Menú Móvil Desplegable -->
+      <div id="mobile-menu" class="hidden flex-col md:hidden bg-slate-950/95 border-b border-slate-800 px-6 py-4 space-y-3 text-slate-300">
         {navLinks.map((link) => (
-          <a href={link.href} class="mobile-nav-link hover:text-cyan-400 transition-colors block py-1">{link.label}</a>
+          <a href={link.href} class="mobile-nav-link hover:text-cyan-400 transition-colors block py-1.5 text-sm font-medium">{link.label}</a>
         ))}
       </div>
     </header>
@@ -96,38 +101,40 @@ const navLinks = [
     <main class="pt-20">
       
       <!-- HERO SECTION -->
-      <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-12 sm:py-16">
+      <section id="inicio" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-12">
         
-        <!-- Carrusel de Fondos IoT en Bucle Aleatorio -->
-        <div class="absolute inset-0 z-0">
+        <!-- Fondo con Transición Suave y Brillo Ajustado (Súper Nitidez) -->
+        <div class="absolute inset-0 z-0 bg-slate-950">
           {iotImages.map((imgSrc, index) => (
             <img
               src={imgSrc}
-              alt={`ZAIKURAI Smart Automation ${index + 1}`}
-              class={`hero-bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-80' : 'opacity-0'}`}
+              alt={`ZAIKURAI Industrial IoT ${index + 1}`}
+              class={`hero-bg-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out transform ${index === 0 ? 'opacity-95 scale-100' : 'opacity-0 scale-105'}`}
             />
           ))}
-          <!-- Filtro de Oscurecimiento -->
-          <div class="absolute inset-0 bg-slate-950/60 z-10"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/80 z-10"></div>
+          <!-- Degradado sutil solo en bordes superior/inferior para no oscurecer la foto -->
+          <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-transparent to-slate-950/90 z-10 pointer-events-none"></div>
         </div>
 
-        <!-- Tarjeta Central: Diagrama de Arquitectura ZAIKURAI -->
-        <div class="relative z-20 max-w-3xl w-full mx-auto px-4 sm:px-6">
-          <div id="open-diagram-btn" class="group relative rounded-3xl p-1 bg-gradient-to-b from-cyan-500/50 via-blue-500/30 to-slate-800/60 shadow-[0_0_60px_rgba(6,182,212,0.3)] hover:shadow-[0_0_80px_rgba(6,182,212,0.45)] transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-md">
-            
-            <div class="bg-slate-900/90 rounded-[22px] overflow-hidden border border-slate-700/60 p-4 sm:p-6 text-center">
+        <!-- Tarjeta Central Principal con Borde Cyan Glow -->
+        <div class="relative z-20 max-w-2xl w-full mx-auto px-4 sm:px-6">
+          <div 
+            id="open-diagram-btn" 
+            class="group relative rounded-3xl p-[2px] bg-gradient-to-b from-cyan-400/80 via-blue-500/30 to-slate-800/80 shadow-[0_0_50px_rgba(6,182,212,0.35)] hover:shadow-[0_0_75px_rgba(6,182,212,0.55)] transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-md"
+          >
+            <div class="bg-slate-950/90 rounded-[22px] overflow-hidden border border-slate-800/80 p-4 sm:p-5 text-center">
               
-              <!-- Diagrama de Arquitectura Integrado -->
-              <div class="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950/90 p-2">
+              <!-- Contenedor Imagen Central -->
+              <div class="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 flex items-center justify-center">
                 <Image 
                   src={diagramaArquitectura} 
-                  alt="Diagrama de Arquitectura ZAIKURAI" 
-                  class="w-full h-auto max-h-[550px] object-contain mx-auto rounded-lg group-hover:scale-[1.02] transition-transform duration-500"
+                  alt="ZAIKURAI Security & Control System" 
+                  class="w-full h-auto max-h-[500px] object-cover rounded-lg group-hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
 
-              <div class="mt-4 flex items-center justify-center gap-2 text-cyan-400 font-bold text-sm tracking-wide">
+              <!-- Texto Acción -->
+              <div class="mt-4 flex items-center justify-center gap-2 text-cyan-400 font-bold text-xs sm:text-sm tracking-wide">
                 <span>Haz clic para ampliar la arquitectura en pantalla completa</span>
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -135,7 +142,6 @@ const navLinks = [
               </div>
 
             </div>
-
           </div>
         </div>
       </section>
@@ -197,7 +203,7 @@ const navLinks = [
 
     </main>
 
-    <!-- MODAL DIAGRAMA AMPLIADO -->
+    <!-- MODAL AMPLIO -->
     <div id="diagram-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md">
       <div class="relative bg-slate-900 border border-slate-800 rounded-2xl max-w-5xl w-full p-6 text-slate-100 shadow-2xl">
         <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
@@ -218,27 +224,29 @@ const navLinks = [
       </div>
     </div>
 
-    <!-- SCRIPT DE ROTACIÓN ALEATORIA Y EVENTOS -->
+    <!-- SCRIPT CLIENTE -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // 1. Rotación Aleatoria de Imágenes de Fondo IoT
+        // 1. Rotación Aleatoria de Fondos con Transición Suave
         const slides = document.querySelectorAll('.hero-bg-slide');
         if (slides.length > 0) {
           let currentIndex = 0;
           setInterval(() => {
-            slides[currentIndex].classList.remove('opacity-80');
-            slides[currentIndex].classList.add('opacity-0');
+            // Desvanecer imagen previa
+            slides[currentIndex].classList.remove('opacity-95', 'scale-100');
+            slides[currentIndex].classList.add('opacity-0', 'scale-105');
 
-            // Generación de índice aleatorio que no sea el mismo actual
+            // Elegir nueva imagen aleatoria
             let nextIndex = Math.floor(Math.random() * slides.length);
             if (nextIndex === currentIndex) {
               nextIndex = (currentIndex + 1) % slides.length;
             }
             currentIndex = nextIndex;
 
-            slides[currentIndex].classList.remove('opacity-0');
-            slides[currentIndex].classList.add('opacity-80');
-          }, 4500);
+            // Mostrar nueva imagen
+            slides[currentIndex].classList.remove('opacity-0', 'scale-105');
+            slides[currentIndex].classList.add('opacity-95', 'scale-100');
+          }, 5000);
         }
 
         // 2. Menú Móvil
@@ -274,7 +282,7 @@ const navLinks = [
           });
         }
 
-        // 3. Modal de Diagrama de Arquitectura
+        // 3. Modal de Diagrama
         const openDiagramBtn = document.getElementById('open-diagram-btn');
         const diagramTrigger = document.getElementById('diagram-trigger');
         const diagramModal = document.getElementById('diagram-modal');
