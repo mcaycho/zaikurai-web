@@ -357,26 +357,21 @@ const navLinks = [
     if (e.target === diagramModal) closeModal();
   });
 
-<script>
-  // Slider Automático de Fondos (JS Vanilla sin genéricos)
+<script is:inline>
+  // Al usar is:inline, Astro ignora el parsing de sintaxis JSX dentro del script
   const slides = document.querySelectorAll('.hero-bg-slide');
   
   if (slides.length > 0) {
-    // 1. Iniciar con una imagen aleatoria
     let currentIndex = Math.floor(Math.random() * slides.length);
     slides[currentIndex].classList.remove('opacity-0');
     slides[currentIndex].classList.add('opacity-65');
 
-    // 2. Transición automática cada 6 segundos
     setInterval(() => {
-      // Ocultar imagen actual
       slides[currentIndex].classList.remove('opacity-65');
       slides[currentIndex].classList.add('opacity-0');
 
-      // Calcular siguiente índice
       currentIndex = (currentIndex + 1) % slides.length;
 
-      // Mostrar nueva imagen
       slides[currentIndex].classList.remove('opacity-0');
       slides[currentIndex].classList.add('opacity-65');
     }, 6000);
